@@ -18,7 +18,7 @@ public class StartUpCommand : Controller
         //RegisterController(Consts.E_CountDownComplete, typeof(CountDownCompleteCommand));
 
         //跳转开始界面
-        Game.Instance.LoadScene(1);
+        //Game.Instance.LoadScene(Game.Instance.StartSceneIndex);
 
     }
 }

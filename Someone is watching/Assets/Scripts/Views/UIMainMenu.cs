@@ -35,6 +35,11 @@ public class UIMainMenu :View
         }
     }
 
+    public void QuitBtnClick()
+    {
+        Application.Quit();
+    }
+
     public override void RegisterEvents()
     {
         

@@ -17,8 +17,10 @@ public static class LanguageControl
         
         foreach(string[] lan in lang)
         {
-            LangMap_ch.Add(lan[0], lan[1]);
-            LangMap_en.Add(lan[0], lan[2]);
+            if(!LangMap_ch.ContainsKey(lan[0]))
+                LangMap_ch.Add(lan[0], lan[1]);
+            if (!LangMap_en.ContainsKey(lan[0]))
+                LangMap_en.Add(lan[0], lan[2]);
         }
 
         //for(int i = 0; i < lang[0].Count; i++)

@@ -71,7 +71,7 @@ public class EmailManager : View
 
     }
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         EmailGrid.OnLeftClick += EmailGrid_OnLeftClick;
         normalTR = transform.Find("ContentPanel").gameObject;

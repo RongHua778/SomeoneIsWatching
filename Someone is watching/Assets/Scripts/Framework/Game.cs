@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class Game : ApplicationBase<Game>
 {
     public Sound Sound = null;
+    public int StartSceneIndex = 1;
 
     public void LoadScene(int level)
     {
@@ -27,17 +28,32 @@ public class Game : ApplicationBase<Game>
         SendEvent(Const.E_EnterScene, e);
     }
 
+    //protected override void Awake()
+    //{
+    //    base.Awake();
+    //    //language
+    //    LanguageControl.LoadLanguage();
+
+    //    Object.DontDestroyOnLoad(this.gameObject);
+    //    Sound = Sound.Instance;
+    //    RegisterController(Const.E_StartUp, typeof(StartUpCommand));
+    //    SendEvent(Const.E_StartUp);
+    //    SceneManager.sceneLoaded += LevelLoaded;
+    //}
+
     private void Start()
     {
         //language
         LanguageControl.LoadLanguage();
-
-
 
         Object.DontDestroyOnLoad(this.gameObject);
         Sound = Sound.Instance;
         RegisterController(Const.E_StartUp, typeof(StartUpCommand));
         SendEvent(Const.E_StartUp);
         SceneManager.sceneLoaded += LevelLoaded;
+
+        SceneArgs e = new SceneArgs();
+        e.sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SendEvent(Const.E_EnterScene, e);
     }
 }

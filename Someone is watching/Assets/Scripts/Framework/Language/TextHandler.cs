@@ -10,7 +10,7 @@ public class TextHandler : MonoBehaviour
     private string LangKey = "";
     // Start is called before the first frame update
 
-    private void Awake()
+    private void Start()
     {
         GameEvents.Instance.onLanguageChange += ChangeLanguage;
     }
