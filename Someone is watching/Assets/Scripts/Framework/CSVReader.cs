@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public static class CSVReader
 {
@@ -8,7 +9,7 @@ public static class CSVReader
     public static List<string>[] ReadFile(TextAsset asset, int col)
     {
         List<string>[] lists = new List<string>[col];
-        for(int i = 0; i < col; i++)
+        for (int i = 0; i < col; i++)
         {
             lists[i] = new List<string>();
         }
@@ -19,6 +20,16 @@ public static class CSVReader
         for (int i = 1; i < data.Length - 1; i++)
         {
             string[] row = data[i].Split(new char[] { ',' });
+            for (int g = 0; g < row.Length; g++)
+            {
+                if (row[g].Contains("，"))
+                {
+                    row[g] = row[g].Replace("，", ",");
+                    //tempDescription = str.replace("\"", "\"\"");
+                }
+            }
+
+
             for (int m = 0; m < col; m++)
             {
                 lists[m].Add(row[m]);
@@ -38,6 +49,15 @@ public static class CSVReader
             if (data[i] != null)
             {
                 string[] row = data[i].Split(new char[] { ',' });
+                for (int g = 0; g < row.Length; g++)
+                {
+                    if (row[g].Contains("，"))
+                    {
+                        row[g] = row[g].Replace("，", ",");
+                        //tempDescription = str.replace("\"", "\"\"");
+                    }
+                }
+
                 list.Add(row);
             }
             //list.Add()

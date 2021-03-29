@@ -9,19 +9,20 @@ public class DigitClock : MonoBehaviour
     public UIMonitor m_UIMonitor;
     public Image[] DigitNums;
     public Sprite[] NumSprites;
-    public int[] DefaultTime=new int[] {1,2,2,1 };
+    public List<int> DefaultTime = new List<int>();
 
-    private int num0=1;
+    private int num0 = 1;
     public int Num0
     {
         get { return num0; }
-        set {
+        set
+        {
             num0 = value;
             if (num0 > 2)
                 num0 = 0;
             if (num0 < 0)
                 num0 = 2;
-            if (Num0 == 2&&Num1>=3)
+            if (Num0 == 2 && Num1 >= 3)
             {
                 Num1 = 0;
                 SetNum(1, Num1);
@@ -29,11 +30,12 @@ public class DigitClock : MonoBehaviour
         }
     }
 
-    private int num1=2;
+    private int num1 = 2;
     public int Num1
     {
         get { return num1; }
-        set {
+        set
+        {
             if (Num0 == 2)
             {
                 num1 = value;
@@ -53,11 +55,12 @@ public class DigitClock : MonoBehaviour
         }
     }
 
-    private int num2=2;
+    private int num2 = 0;
     public int Num2
     {
         get { return num2; }
-        set {
+        set
+        {
             num2 = value;
             if (num2 > 5)
                 num2 = 0;
@@ -66,11 +69,12 @@ public class DigitClock : MonoBehaviour
         }
     }
 
-    private int num3=1;
+    private int num3 = 0;
     public int Num3
     {
         get { return num3; }
-        set {
+        set
+        {
             num3 = value;
             if (num3 > 9)
                 num3 = 0;
@@ -86,13 +90,30 @@ public class DigitClock : MonoBehaviour
         SetNum(1, Num1);
         SetNum(2, Num2);
         SetNum(3, Num3);
+        DefaultTime = new List<int> { num0, num1, num2, num3 };
     }
     public void CloseClock()
     {
         this.gameObject.SetActive(false);
         m_UIMonitor.m_UIInteractive.HideSubtitle();
         m_UIMonitor.FindAndSetInteract();
+        ResetTime();
+    }
+
+    public void ConfirmBtnClick()
+    {
+        this.gameObject.SetActive(false);
+        m_UIMonitor.m_UIInteractive.HideSubtitle();
+        m_UIMonitor.FindAndSetInteract();
         TimeCheck();
+    }
+
+    private void ResetTime()
+    {
+        SetNum(0, DefaultTime[0]);
+        SetNum(1, DefaultTime[1]);
+        SetNum(2, DefaultTime[2]);
+        SetNum(3, DefaultTime[3]);
     }
 
     public void TimeCheck()
@@ -106,12 +127,12 @@ public class DigitClock : MonoBehaviour
                     m_UIMonitor.Day1Period2();
                     Sound.Instance.PlayEffect("SoundEffect/Sound_Distortion");
                 }
-                else if(num0 != DefaultTime[0] || num1 != DefaultTime[1] || num2 != DefaultTime[2] || num3 != DefaultTime[3])
+                else if (num0 != DefaultTime[0] || num1 != DefaultTime[1] || num2 != DefaultTime[2] || num3 != DefaultTime[3])
                 {
                     m_UIMonitor.m_GameModel.GameOverState = "ClockWrong";
                     Game.Instance.LoadScene(3);
                 }
-                DefaultTime = new int[] { num0, num1, num2, num3 };
+                DefaultTime = new List<int> { num0, num1,num2,num3};
                 break;
 
             case "Day1Period4":
@@ -125,18 +146,18 @@ public class DigitClock : MonoBehaviour
                     m_UIMonitor.m_GameModel.GameOverState = "ClockWrong";
                     Game.Instance.LoadScene(3);
                 }
-                DefaultTime = new int[] { num0, num1, num2, num3 };
+                DefaultTime = new List<int> { num0, num1, num2, num3 };
                 break;
             default:
                 break;
         }
-        
-        if (num0 != DefaultTime[0] || num1 != DefaultTime[1]|| num2 != DefaultTime[2] || num3 != DefaultTime[3])
+
+        if (num0 != DefaultTime[0] || num1 != DefaultTime[1] || num2 != DefaultTime[2] || num3 != DefaultTime[3])
         {
             m_UIMonitor.m_GameModel.GameOverState = "ClockWrong";
             Game.Instance.LoadScene(3);
         }
-        DefaultTime = new int[] { num0, num1, num2, num3 };
+        DefaultTime = new List<int> { num0, num1, num2, num3 };
 
     }
 
@@ -181,7 +202,7 @@ public class DigitClock : MonoBehaviour
         Sound.Instance.PlayEffect("SoundEffect/Sound_Click");
     }
 
-    public void SetNum(int id,int num)
+    public void SetNum(int id, int num)
     {
         DigitNums[id].sprite = NumSprites[num];
     }

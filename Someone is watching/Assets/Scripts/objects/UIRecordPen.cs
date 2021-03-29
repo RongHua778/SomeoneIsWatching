@@ -18,12 +18,7 @@ public class UIRecordPen : View
     public Transform content;
     public Record[] Records;
 
-    public AudioSource m_Audio;
-
-    public Button btnPlay;
-    public Button btnPause;
-
-    Record m_Record;
+    public Record m_Record;
 
     float playtime = 0;
     // Start is called before the first frame update
@@ -67,9 +62,6 @@ public class UIRecordPen : View
             ShowPlayPanel(rec);
         }
 
-        btnPlay.gameObject.SetActive(true);
-        btnPause.gameObject.SetActive(false);
-
     }
 
     public void ShowPlayPanel(Record rec)
@@ -84,50 +76,10 @@ public class UIRecordPen : View
 
 
 
-    public void PlayClip()
-    {
-        m_Audio.clip = m_Record.RecordClip;
-        m_Audio.Play();
-        btnPlay.gameObject.SetActive(false);
-        btnPause.gameObject.SetActive(true);
 
-        if (m_Record.ID == 2)
-        {
-            m_UIdesktop.m_GameModel.day3_RedRecord = true;
-        }
 
-    }
 
-    public void PauseClip()
-    {
-        m_Audio.Pause();
-        btnPlay.gameObject.SetActive(true);
-        btnPause.gameObject.SetActive(false);
-    }
 
-    public void CloseRecordPen()
-    {
-        this.gameObject.SetActive(false);
-        m_Audio.Stop();
-        btnPlay.gameObject.SetActive(true);
-        btnPause.gameObject.SetActive(false);
-    }
-
-    private void Update()
-    {
-
-        if (m_Audio.isPlaying)
-        {
-            playtime += Time.deltaTime;
-            if (playtime >= m_Audio.clip.length)
-            {
-                m_Audio.Stop();
-                playtime = 0;
-                btnPlay.gameObject.SetActive(true);
-                btnPause.gameObject.SetActive(false);
-            }
-        }
-    }
 
     public override void RegisterEvents()
     {
