@@ -11,7 +11,7 @@ public class GameModel : Model
 
     public bool Calling = false;
 
-    public int Day = 1;
+    public int Day = 2;
     public bool daying = false;
     string overallstate = null;
     public string overAllState

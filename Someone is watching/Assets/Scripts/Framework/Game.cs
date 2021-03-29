@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class Game : ApplicationBase<Game>
 {
     public Sound Sound = null;
-    public int StartSceneIndex = 1;
+    public int StartSceneIndex = default;
 
     public void LoadScene(int level)
     {
@@ -18,7 +18,7 @@ public class Game : ApplicationBase<Game>
         SendEvent(Const.E_ExitScene,e);
         SceneManager.LoadScene(level, LoadSceneMode.Single);
         //language
-        GameEvents.Instance.LanguageChange();
+        //GameEvents.Instance.LanguageChange();
     }
 
     public void LevelLoaded(Scene scene,LoadSceneMode mod)

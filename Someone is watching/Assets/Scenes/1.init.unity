@@ -329,6 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sound: {fileID: 0}
+  StartSceneIndex: 1
 --- !u!114 &1734426150
 MonoBehaviour:
   m_ObjectHideFlags: 0
