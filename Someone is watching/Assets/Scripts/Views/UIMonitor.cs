@@ -277,7 +277,7 @@ public class UIMonitor : View
         m_GameModel.overAllState = "Day1Period5";
         Segment seg0 = new Segment(0, "Video/Camera1/D1.1g（空镜）", "D1-1g", false, false);
         //PlayClip(seg0);
-        Segment seg1 = new Segment(4, "Video/Camera5/D1.5f", "D1-1f", true, false);
+        Segment seg1 = new Segment(4, "Video/Camera5/D1.5f", "D1-5f", true, false,null,Day1Period5_2);
         Segment seg2 = new Segment(0, "Video/Camera1/D1.1g", "D1-1g", true, false,null,Day1Period6);
         //PlayClip(new List<Segment> { seg1, seg2 });
         Segment seg3 = new Segment(5, "Video/Camera6/D1.6c", "D1-6c", false, false);
@@ -289,6 +289,11 @@ public class UIMonitor : View
 
         //PlayClip(seg3);
         //PlayClip(seg4);
+    }
+
+    void Day1Period5_2()
+    {
+        VideoManager.Instance.ShowImage(4, "D1-5f_b", "Image/Camera5/D1.5f_b", false);
     }
 
     void Day1Period6()

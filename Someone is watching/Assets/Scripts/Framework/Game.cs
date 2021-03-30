@@ -31,6 +31,8 @@ public class Game : ApplicationBase<Game>
     {
         base.Awake();
         //先读取翻译文件
+        if (!canContinue)
+            return;
         LanguageControl.LoadLanguage();
 
         Object.DontDestroyOnLoad(this.gameObject);

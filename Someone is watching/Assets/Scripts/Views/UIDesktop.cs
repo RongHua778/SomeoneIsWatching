@@ -14,10 +14,18 @@ public class UIDesktop : View
     public UIRecordPen m_RecordPen;
     public EmailManager m_EmailSystem;
     public GameModel m_GameModel;
+    public GameObject RecordPenBtn;
+
 
     public void Show()
     {
         HideMonitor();
+    }
+
+    public void UnlockRecordBtn(bool unlock)
+    {
+        m_GameModel.unlockRecord = unlock;
+        RecordPenBtn.SetActive(unlock);
     }
 
 
@@ -82,6 +90,8 @@ public class UIDesktop : View
     void Start()
     {
         m_GameModel = GetModel<GameModel>() as GameModel;
+        if (m_GameModel.unlockRecord)
+            UnlockRecordBtn(m_GameModel.unlockRecord);
 
     }
 
@@ -94,12 +104,18 @@ public class UIDesktop : View
 
     public override void RegisterEvents()
     {
-        
+        AttentionEvents.Add(Const.E_UnlockRecord);
     }
 
     public override void HandleEvent(string eventName, object obj)
     {
-        
+        switch (eventName)
+        {
+            case Const.E_UnlockRecord:
+                bool unlock = (bool)obj;
+                UnlockRecordBtn(unlock);
+                break;
+        }
     }
 
 }

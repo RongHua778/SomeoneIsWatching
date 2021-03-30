@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34abf405017b2984bad138caca9ea9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LangKey: 
+  LangKey: day3
 --- !u!1 &375459922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,4 +1043,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34abf405017b2984bad138caca9ea9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LangKey: 
+  LangKey: restart

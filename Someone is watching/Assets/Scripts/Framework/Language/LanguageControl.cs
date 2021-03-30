@@ -29,7 +29,12 @@ public static class LanguageControl
     public static string GetValue(string key)
     {
         string languageType = StaticData.language;
-
+        string data;
+        if (!LangMap_en.TryGetValue(key,out data))
+        {
+            Debug.LogError("This key not present in language DIC:" + key);
+            return "";
+        }
         if (languageType == "en")
             return LangMap_en[key];
         else if (languageType == "ch")

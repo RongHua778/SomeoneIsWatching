@@ -11,8 +11,9 @@ public class GameModel : Model
 
     public bool Calling = false;
 
-    public int Day = 2;
+    public int Day = 1;
     public bool daying = false;
+    public bool unlockRecord = false;
     string overallstate = null;
     public string overAllState
     {
@@ -59,13 +60,13 @@ public class GameModel : Model
     public bool day4_Piece6 = false;
     public bool day4_Piece7 = false;
 
-    public void NextDay()
+    public void NextDay(bool isTest=false)
     {
        
         switch (Day)
         {
             case 1:
-                if (overallstate == "Day1Period6")
+                if (overallstate == "Day1Period6"||isTest)
                 {
                     GameOverState = "Day2";
                     Day = 2;
@@ -78,7 +79,7 @@ public class GameModel : Model
                 }
                 break;
             case 2:
-                if (day2_Camera2Repair && day2_Camera4Repair && day2_WaterPungRepair)
+                if ((day2_Camera2Repair && day2_Camera4Repair && day2_WaterPungRepair) || isTest)
                 {
                     GameOverState = "Day3";
                     Day = 3;
@@ -91,7 +92,7 @@ public class GameModel : Model
                 break;
 
             case 3:
-                if (day3_LoginEmail && day3_ReporterWang && day3_RedRecord)
+                if ((day3_LoginEmail && day3_ReporterWang && day3_RedRecord) || isTest)
                 {
                     GameOverState = "Day4";
                     Day = 4;

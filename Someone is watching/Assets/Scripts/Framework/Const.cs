@@ -53,5 +53,7 @@ public static class Const
 
     public const string E_TriggerDialogue = "E_TriggerDialogue";
 
+    public const string E_UnlockRecord = "E_UnlockRecord";
+
 
 }

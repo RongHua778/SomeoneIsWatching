@@ -108,7 +108,7 @@ public class UIFunctionManager : View
 
     public void DayPass()
     {
-        m_GameModel.Day++;
+        m_GameModel.NextDay(true);
         Game.Instance.LoadScene(3);
     }
 

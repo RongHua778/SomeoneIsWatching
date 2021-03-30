@@ -258,6 +258,21 @@ public class UIInteractive : MonoBehaviour
                 ShowSubtitle("ladybag");
                 break;
 
+            case "D15fLadyBag":
+                if(!m_Monitor.m_GameModel.unlockRecord)
+                    VideoManager.Instance.ShowImage(9, "D1-5f_Y", "Image/Camera5/D1.5f_y", false);
+                else
+                    VideoManager.Instance.ShowImage(9, "D1-5f_K", "Image/Camera5/D1.5f_k", false);
+                ShowItemPanel();
+                break;
+
+            case "D15fRecordPen":
+                VideoManager.Instance.ShowImage(9, "D1-5f_K", "Image/Camera5/D1.5f_k", false);
+                m_Monitor.SendEvent(Const.E_UnlockRecord, true);
+                m_Monitor.SendEvent(Const.E_ShowMessage, "tips17");
+                VideoManager.Instance.CloseAll();
+                break;
+
             case "D13aPaperTip":
                 //CloseAll();
                 VideoManager.Instance.CloseAll();

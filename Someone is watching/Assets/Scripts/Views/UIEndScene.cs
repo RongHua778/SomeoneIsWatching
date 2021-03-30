@@ -20,7 +20,7 @@ public class UIEndScene : View
     Transform MainBtn;
     Transform EndTextTrans;
 
-    private void Start()
+    private void Awake()
     {
         m_VideoPlayer = this.transform.Find("VideoPlayer").GetComponent<VideoPlayer>();
         MainBtn = transform.Find("Restart");
