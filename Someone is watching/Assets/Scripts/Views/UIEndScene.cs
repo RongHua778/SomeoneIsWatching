@@ -8,14 +8,14 @@ using UnityEngine.Video;
 public class UIEndScene : View
 {
     [SerializeField]
-    TextHandler EndText;
+    TextHandler EndText = default;
     GameModel m_GameModel;
     public override string Name { get { return Const.V_EndScene; } }
     VideoPlayer m_VideoPlayer;
     public TextHandler MainBtnTxt;
 
     [SerializeField]
-    Image EndSceneImg;
+    Image EndSceneImg = default;
 
     Transform MainBtn;
     Transform EndTextTrans;

@@ -20,7 +20,6 @@ public class UIRecordPen : View
 
     public Record m_Record;
 
-    float playtime = 0;
     // Start is called before the first frame update
     void Awake()
     {

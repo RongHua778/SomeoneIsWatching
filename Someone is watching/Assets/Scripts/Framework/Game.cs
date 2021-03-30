@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class Game : ApplicationBase<Game>
 {
-    public Sound Sound = null;
     public int StartSceneIndex = default;
 
     public void LoadScene(int level)
@@ -18,7 +17,7 @@ public class Game : ApplicationBase<Game>
         SendEvent(Const.E_ExitScene,e);
         SceneManager.LoadScene(level, LoadSceneMode.Single);
         //language
-        //GameEvents.Instance.LanguageChange();
+        GameEvents.Instance.LanguageChange();
     }
 
     public void LevelLoaded(Scene scene,LoadSceneMode mod)
@@ -28,27 +27,13 @@ public class Game : ApplicationBase<Game>
         SendEvent(Const.E_EnterScene, e);
     }
 
-    //protected override void Awake()
-    //{
-    //    base.Awake();
-    //    //language
-    //    LanguageControl.LoadLanguage();
-
-    //    Object.DontDestroyOnLoad(this.gameObject);
-    //    Sound = Sound.Instance;
-    //    RegisterController(Const.E_StartUp, typeof(StartUpCommand));
-    //    SendEvent(Const.E_StartUp);
-    //    SceneManager.sceneLoaded += LevelLoaded;
-    //}
-
     protected override void Awake()
     {
         base.Awake();
-        //language
+        //先读取翻译文件
         LanguageControl.LoadLanguage();
 
         Object.DontDestroyOnLoad(this.gameObject);
-        Sound = Sound.Instance;
         RegisterController(Const.E_StartUp, typeof(StartUpCommand));
         SendEvent(Const.E_StartUp);
         SceneManager.sceneLoaded += LevelLoaded;

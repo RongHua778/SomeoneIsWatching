@@ -10,7 +10,7 @@ public class RecordPlayPanel : MonoBehaviour
     public Text recordName;
     public Text recordTime;
     [SerializeField]
-    TextHandler textHandler;
+    TextHandler textHandler = default;
 
     AudioSource m_Audio;
 

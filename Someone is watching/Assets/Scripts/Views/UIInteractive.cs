@@ -125,6 +125,10 @@ public class UIInteractive : MonoBehaviour
     {
         switch (item.ID)
         {
+            case 1:
+                digitClockPanel.gameObject.SetActive(true);
+                ShowSubtitle("digitclock");
+                break;
             case 2:
             case 4:
             case 6:
@@ -143,9 +147,6 @@ public class UIInteractive : MonoBehaviour
     {
         switch (id)
         {
-            case 1://电子时钟,需要独立制作一个界面
-                digitClockPanel.gameObject.SetActive(true);
-                break;
             case 3:
 
                 multiPanel.UpdatePanel(0);
@@ -188,8 +189,6 @@ public class UIInteractive : MonoBehaviour
         switch (code)
         {
             case "D11aProtagonist":
-                //InteractArgs e1 = new InteractArgs { MonitorID = 0, Type = MonitorType.Image, Path = null, State = "D1-1b" };
-                //m_Monitor.SendEvent(Const.E_Interact, e1);
                 m_Monitor.m_GameModel.GameOverState = "CloseCamera";
                 Game.Instance.LoadScene(3);
                 VideoManager.Instance.CloseAll();
@@ -208,8 +207,6 @@ public class UIInteractive : MonoBehaviour
 
                         VideoManager.Instance.ShowImage(9, "Desk", "Image/Camera1/Day1.1d(抽屉)", false);
                         ShowItemPanel();
-                        //ShowItemPanel("Image/Camera1/Day1.1d(抽屉)",0);
-                        //FindAndSet("Desk");
                     }
                     else
                     {
@@ -252,11 +249,9 @@ public class UIInteractive : MonoBehaviour
                 break;
 
             case "D16aDigitClock":
-                ShowItemInBag(1);
+                VideoManager.Instance.ShowImage(5, "D1-6a_k", "Image/Camera6/D1.6a_k", false);
+                m_Monitor.SendEvent(Const.E_GetItem, 1);
                 //CloseAll();
-                VideoManager.Instance.CloseAll();
-
-                ShowSubtitle("digitclock");
                 break;
 
             case "D15aLadyBag":
@@ -522,6 +517,7 @@ public class UIInteractive : MonoBehaviour
 
             case "D2Piece2":
                 // ShowItemPanel("Image/Camera7/d2.7c无碎片",6);
+                VideoManager.Instance.ShowImage(6, "D2-7c_k", "Image/Camera7/D2.7c_k", false);
                 VideoManager.Instance.ShowImage(9, null, "Image/Camera7/d2.7c无碎片", false);
                 ShowItemPanel();
                 m_Monitor.SendEvent(Const.E_GetItem, 6);

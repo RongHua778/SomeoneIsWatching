@@ -61,7 +61,7 @@ public class UIItemManager : View
         //List<string[]> items = CSVReader.ReadCSV(Resources.Load<TextAsset>("Translation/items"));
         ItemList = new Dictionary<int, Item>();
         Item I00 = new Item(0, "录音笔", "一支有录音功能的笔，似乎有些损坏","", "Item/recordPen", new List<string>{ "LadyBag" });
-        Item I01 = new Item(1, "电子时钟","一个可设置时间的电子时钟", "", "", null);
+        Item I01 = new Item(1, "电子时钟","一个可设置时间的电子时钟", "", "Item/DigitClock", null);
         Item I02 = new Item(2, "MemoryPiece#1", 
             "医生的话让我很难过，真的只能这样了吗。我哪里也不想去，打车回家已经是晚上9点了，只想早点休息。",
             "The doctor's words make me very sad.I didn't want to go anywhere. It was already 9 p.m and I just wanted to get an early night.",

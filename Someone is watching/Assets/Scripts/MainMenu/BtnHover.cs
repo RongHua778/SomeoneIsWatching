@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BtnHover : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
-    [SerializeField] Text boldTxt;
+    [SerializeField] Text boldTxt = default;
     public void OnPointerEnter(PointerEventData eventData)
     {
         boldTxt.fontStyle = FontStyle.Bold;
