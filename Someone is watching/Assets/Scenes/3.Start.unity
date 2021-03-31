@@ -1285,9 +1285,9 @@ RectTransform:
   - {fileID: 1359185649}
   - {fileID: 1603461457}
   - {fileID: 2054300931}
-  - {fileID: 1471459122}
   - {fileID: 1457075266}
   - {fileID: 827516537}
+  - {fileID: 1471459122}
   - {fileID: 1822267470}
   - {fileID: 1917486067}
   - {fileID: 1690964312}
@@ -13923,7 +13923,7 @@ RectTransform:
   m_Children:
   - {fileID: 494273222}
   m_Father: {fileID: 70324432}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -22555,7 +22555,7 @@ RectTransform:
   - {fileID: 339923092}
   - {fileID: 1396298647}
   m_Father: {fileID: 70324432}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -22699,7 +22699,7 @@ RectTransform:
   - {fileID: 1537185850}
   - {fileID: 448218579}
   m_Father: {fileID: 70324432}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -22726,46 +22726,46 @@ MonoBehaviour:
     type: 3}
   content: {fileID: 1064594149}
   Records:
-  - RecordClip: {fileID: 8300000, guid: 06734194e077d824088d53499387c0c0, type: 3}
+  - RecordClip: {fileID: 8300000, guid: 23276a7650b29814483a6e59e7000cb2, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
     ID: 1
-    NeedPassword: 0
-    PassWord: 
-    RecordName: Record_01
-    RecordDate: 2019-08-22
-    RecordText: record2
-  - RecordClip: {fileID: 8300000, guid: 23276a7650b29814483a6e59e7000cb2, type: 3}
-    Color: {r: 1, g: 0, b: 0, a: 1}
-    ID: 2
     NeedPassword: 1
     PassWord: 7214
+    RecordName: Record_01
+    RecordDate: 20XX-07-13 20:40
+    RecordText: record1
+  - RecordClip: {fileID: 8300000, guid: 23276a7650b29814483a6e59e7000cb2, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+    ID: 2
+    NeedPassword: 1
+    PassWord: 6666
     RecordName: Record_02
     RecordDate: 2019-08-25
     RecordText: record4
-  - RecordClip: {fileID: 8300000, guid: ad691fe818b39c0439e98190ac547a44, type: 3}
-    Color: {r: 0, g: 0.20553756, b: 1, a: 1}
+  - RecordClip: {fileID: 8300000, guid: 23276a7650b29814483a6e59e7000cb2, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
     ID: 3
     NeedPassword: 1
-    PassWord: 3964
+    PassWord: 6666
     RecordName: Record_03
     RecordDate: 2019-08-28
     RecordText: record1
-  - RecordClip: {fileID: 8300000, guid: d5821b2449e0e834abac4c4b74732928, type: 3}
+  - RecordClip: {fileID: 8300000, guid: 06734194e077d824088d53499387c0c0, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
     ID: 4
     NeedPassword: 0
     PassWord: 
     RecordName: Record_day4
-    RecordDate: 2019-08-28
-    RecordText: record3
-  - RecordClip: {fileID: 8300000, guid: 23276a7650b29814483a6e59e7000cb2, type: 3}
-    Color: {r: 1, g: 0.8209481, b: 0, a: 1}
+    RecordDate: 20XX-08-22 17:23
+    RecordText: record2
+  - RecordClip: {fileID: 8300000, guid: ad691fe818b39c0439e98190ac547a44, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
     ID: 5
     NeedPassword: 0
-    PassWord: 9877
+    PassWord: 
     RecordName: Record_04
-    RecordDate: 2019-08-28
-    RecordText: record4
+    RecordDate: 20XX-08-24 00:11
+    RecordText: record1
   m_Record:
     RecordClip: {fileID: 0}
     Color: {r: 0, g: 0, b: 0, a: 0}

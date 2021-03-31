@@ -18,6 +18,7 @@ public class UIRecordPen : View
     public Transform content;
     public Record[] Records;
 
+    [HideInInspector]
     public Record m_Record;
 
     // Start is called before the first frame update
@@ -38,6 +39,7 @@ public class UIRecordPen : View
         AddRecordFile(Records[0]);
         AddRecordFile(Records[1]);
         AddRecordFile(Records[2]);
+        AddRecordFile(Records[3]);
         AddRecordFile(Records[4]);
     }
 

@@ -37,13 +37,13 @@ public class UIEndScene : View
         {
             case "CloseCamera":
                 endText = "ending2";
-                Sound.Instance.PlayEffect("SoundEffect/Sound_Lose");
+                Sound.Instance.PlayBg("BGMusic/GameOverMusic", 1f);
                 SetEndImg("HasBeenSeen");
                 break;
             case "ClockWrong":
             case "Day1":
                 endText = "ending3";
-                Sound.Instance.PlayEffect("SoundEffect/Sound_Lose");
+                Sound.Instance.PlayBg("BGMusic/GameOverMusic", 1f);
                 SetEndImg("WrongTime");
                 break;
             case "Day2":
@@ -75,7 +75,7 @@ public class UIEndScene : View
                 break;
             case "DeadManNoSay":
                 endText = "ending1";
-                Sound.Instance.PlayEffect("SoundEffect/Sound_Lose");
+                Sound.Instance.PlayBg("BGMusic/GameOverMusic", 1f);
                 SetEndImg("CannotSpeak");
                 break;
 
