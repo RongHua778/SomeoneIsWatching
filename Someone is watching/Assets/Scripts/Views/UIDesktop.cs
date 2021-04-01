@@ -12,14 +12,20 @@ public class UIDesktop : View
 
     public UIMonitor m_Monitor;
     public UIRecordPen m_RecordPen;
+    public UIMemory m_UIMemory;
     public EmailManager m_EmailSystem;
     public GameModel m_GameModel;
     public GameObject RecordPenBtn;
+
+    private const int ShowIndex = 10;
 
 
     public void Show()
     {
         HideMonitor();
+        HideRecordPen();
+        HideEmail();
+        HideMemory();
     }
 
     public void UnlockRecordBtn(bool unlock)
@@ -31,7 +37,7 @@ public class UIDesktop : View
 
     public void MonitorIconClick()
     {
-        m_Monitor.transform.SetSiblingIndex(8);
+        m_Monitor.transform.SetSiblingIndex(ShowIndex);
         if (!m_GameModel.daying)
         {
             m_Monitor.DayStart(m_GameModel.Day);
@@ -45,15 +51,33 @@ public class UIDesktop : View
 
     public void RecoredPenClick()
     {
-        m_RecordPen.transform.SetSiblingIndex(8);
+        m_RecordPen.transform.SetSiblingIndex(ShowIndex);
+        Sound.Instance.PlayEffect("SoundEffect/Sound_ComputerOpen");
+    }
+
+    public void MemoryClick()
+    {
+        m_UIMemory.transform.SetSiblingIndex(ShowIndex);
         Sound.Instance.PlayEffect("SoundEffect/Sound_ComputerOpen");
     }
 
     public void EmailClick()
     {
-        m_EmailSystem.transform.SetSiblingIndex(8);
+        m_EmailSystem.transform.SetSiblingIndex(ShowIndex);
         Sound.Instance.PlayEffect("SoundEffect/Sound_ComputerOpen");
 
+    }
+    public void MemomryClick()
+    {
+        m_UIMemory.transform.SetSiblingIndex(ShowIndex);
+        Sound.Instance.PlayEffect("SoundEffect/Sound_ComputerOpen");
+
+    }
+
+    public void HideMemory()
+    {
+        m_UIMemory.transform.SetSiblingIndex(0);
+        Sound.Instance.PlayEffect("SoundEffect/Sound_ComputerOpen");
     }
 
     public void HideRecordPen()
@@ -73,18 +97,19 @@ public class UIDesktop : View
         m_Monitor.transform.SetSiblingIndex(0);
         m_Monitor.m_UIInteractive.CheckAll();
         Sound.Instance.PlayEffect("SoundEffect/Sound_ComputerOpen");
+    }
 
-        //Debug.Log("Tes00");
+    public void HideEmail()
+    {
+        m_EmailSystem.transform.SetAsFirstSibling();
+        Sound.Instance.PlayEffect("SoundEffect/Sound_ComputerOpen");
     }
 
     public void CloseScreen()
     {
-        //if (m_GameModel.AllowExitToReal)
         SendEvent(Const.E_ShowPanel, 1);
         Sound.Instance.PlayEffect("SoundEffect/Sound_ComputerOpen");
 
-        //else
-        //SendEvent(Const.E_ShowMessage, "未知错误，无法退出");
     }
     // Start is called before the first frame update
     void Start()

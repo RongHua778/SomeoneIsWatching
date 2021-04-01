@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -39,12 +40,14 @@ public class UIEndScene : View
                 endText = "ending2";
                 Sound.Instance.PlayBg("BGMusic/GameOverMusic", 1f);
                 SetEndImg("HasBeenSeen");
+                m_GameModel.unlockRecord = false;
                 break;
             case "ClockWrong":
             case "Day1":
                 endText = "ending3";
                 Sound.Instance.PlayBg("BGMusic/GameOverMusic", 1f);
                 SetEndImg("WrongTime");
+                m_GameModel.unlockRecord = false;
                 break;
             case "Day2":
                 endText = "day2";
@@ -83,12 +86,30 @@ public class UIEndScene : View
         if (!lose)
         {
             MainBtnTxt.SetText("next");
+            SetItemsGet(false);
         }
         else
         {
             MainBtnTxt.SetText("restart");
+            SetItemsGet(true);
         }
         EndText.SetText(endText);
+    }
+
+
+    private void SetItemsGet(bool lose)
+    {
+        if (lose)
+        {
+            m_GameModel.collectedItems_Temp.Clear();
+            m_GameModel.collectedPieces_Temp.Clear();
+        }
+        else
+        {
+            m_GameModel.collectedItems.AddRange(m_GameModel.collectedItems_Temp);
+            m_GameModel.collectedPieces.AddRange(m_GameModel.collectedPieces_Temp);
+        }
+
     }
 
     IEnumerator CheckVideoFinish(CallBackFunc callback = null)

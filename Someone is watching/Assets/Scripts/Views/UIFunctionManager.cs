@@ -37,6 +37,7 @@ public class UIFunctionManager : View
                 break;
 
             case 2:
+                ShowPanel(1);
                 VideoManager.Instance.ShowImage(10, "Day2_End", "Image/CG/MainPhoneOn", false);
 
                 break;
@@ -47,6 +48,7 @@ public class UIFunctionManager : View
                 break;
 
             case 4:
+                ShowPanel(1);
                 VideoManager.Instance.ShowImage(10, "CG1", "Image/CG/MainPhoneOFF", false);
                 SendEvent(Const.E_AddRecord, 3);//新增录音片段
                 SendEvent(Const.E_SendEmail, 4);
@@ -72,7 +74,7 @@ public class UIFunctionManager : View
                 break;
             case 1:
                 m_Desktop.transform.SetAsFirstSibling();
-                
+                m_Desktop.Show();
                 break;
         }
 
@@ -106,7 +108,7 @@ public class UIFunctionManager : View
         m_GameModel.Day = day;
     }
 
-    public void DayPass()
+    public void DayPass()//test only
     {
         m_GameModel.NextDay(true);
         Game.Instance.LoadScene(3);

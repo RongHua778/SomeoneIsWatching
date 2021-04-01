@@ -19,6 +19,7 @@ public class PassWordPanel : MonoBehaviour
     public void ClosePanel()
     {
         this.gameObject.SetActive(false);
+        inputField.text = "";
     }
 
     public void Confirm()

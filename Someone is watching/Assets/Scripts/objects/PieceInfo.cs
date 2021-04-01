@@ -16,19 +16,21 @@ public class PieceInfo : MonoBehaviour
 
     public void UpdatePieceInfo(Item item)
     {
-        piecename.text = item.Name;
-        if (StaticData.language == "ch")
-            info.text = item.Description;
-        else if (StaticData.language == "en")
-            info.text = item.Descrition_En;
+        info.GetComponent<TextHandler>().SetText(item.Description);
+        piecename.GetComponent<TextHandler>().SetText(item.Name);
+        //piecename.text = item.Name;
+        //if (StaticData.language == "ch")
+        //    info.text = item.Description;
+        //else if (StaticData.language == "en")
+        //    info.text = item.Descrition_En;
     }
 
-    public void ClosePieceInfo()
-    {
-        this.gameObject.SetActive(false);
-        m_UIMonitor.m_UIInteractive.HideSubtitle();
-        m_UIMonitor.FindAndSetInteract();
-    }
+    //public void ClosePieceInfo()
+    //{
+    //    this.gameObject.SetActive(false);
+    //    m_UIMonitor.m_UIInteractive.HideSubtitle();
+    //    m_UIMonitor.FindAndSetInteract();
+    //}
     // Update is called once per frame
     void Update()
     {

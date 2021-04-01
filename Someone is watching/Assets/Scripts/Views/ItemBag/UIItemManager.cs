@@ -11,7 +11,7 @@ public class UIItemManager : View
     }
 
 
-    private Dictionary<int, Item> ItemList = new Dictionary<int, Item>();
+    public static Dictionary<int, Item> ItemList = new Dictionary<int, Item>();
     public GridPanelUI GridPanelUI;
 
     public DragItemUI DragItemUI;
@@ -19,12 +19,14 @@ public class UIItemManager : View
     GameModel m_GameModel;
 
     private bool isDrag = false;
+    private List<Item> storedItems = new List<Item>();
     protected void Awake()
     {
         //base.Awake();
         Load();
-        
-       // m_GameModel = GetModel<GameModel>() as GameModel;
+        m_GameModel = GetModel<GameModel>() as GameModel;
+
+        // m_GameModel = GetModel<GameModel>() as GameModel;
         GridUI.OnLeftBeginDrag += GridUI_OnLeftBeginDrag;
         GridUI.OnLeftEndDrag += GridUI_OnLeftEndDrag;
         GridUI.OnLeftClick += GridUI_OnLeftClick;
@@ -32,7 +34,10 @@ public class UIItemManager : View
 
     private void Start()
     {
-        m_GameModel = GetModel<GameModel>() as GameModel;
+        foreach (var item in m_GameModel.collectedItems)
+        {
+            StoreItem(item.ID);
+        }
     }
     private void Update()
     {
@@ -60,24 +65,21 @@ public class UIItemManager : View
     {
         //List<string[]> items = CSVReader.ReadCSV(Resources.Load<TextAsset>("Translation/items"));
         ItemList = new Dictionary<int, Item>();
-        Item I00 = new Item(0, "录音笔", "一支有录音功能的笔，似乎有些损坏","", "Item/recordPen", new List<string>{ "LadyBag" });
-        Item I01 = new Item(1, "电子时钟","一个可设置时间的电子时钟", "", "Item/DigitClock", null);
-        Item I02 = new Item(2, "MemoryPiece#1", 
-            "医生的话让我很难过，真的只能这样了吗。我哪里也不想去，打车回家已经是晚上9点了，只想早点休息。",
-            "The doctor's words make me very sad.I didn't want to go anywhere. It was already 9 p.m and I just wanted to get an early night.",
-            "Item/Piece1", null);
-        Item I03 = new Item(3, "电池", "一块电量充足的电池", "", "Item/battery", new List<string> { "EnergyRepair1","EnergyRepair3" });
-        Item I04 = new Item(4, "记忆碎片#3", "记忆碎片#3", "", "Item/Piece3", null);
-        Item I05 = new Item(5, "扳手", "可以用来修复", "", "Item/Tool", new List<string> { "Day2WaterPungCanRepair" });
-        Item I06 = new Item(6, "记忆碎片#2", "记忆碎片#2", "", "Item/Piece2", null);
+        Item I00 = new Item(0, "录音笔", "一支有录音功能的笔，似乎有些损坏", "Item/recordPen", new List<string>{ "LadyBag" });
+        Item I01 = new Item(1, "电子时钟","一个可设置时间的电子时钟",  "Item/DigitClock", null);
+        Item I02 = new Item(2, "piece01","piece01_info", "Item/Piece1", null);
+        Item I03 = new Item(3, "电池", "一块电量充足的电池",  "Item/battery", new List<string> { "EnergyRepair1","EnergyRepair3" });
+        Item I04 = new Item(4, "piece03", "piece03_info", "Item/Piece3", null);
+        Item I05 = new Item(5, "扳手", "可以用来修复", "Item/Tool", new List<string> { "Day2WaterPungCanRepair" });
+        Item I06 = new Item(6, "piece02", "piece02_info", "Item/Piece2", null);
 
-        Item I07 = new Item(7, "记忆残片#4", "记忆残片#4", "", "Item/Piece2", null);
-        Item I08 = new Item(8, "记忆残片#5", "记忆残片#5", "", "Item/Piece2", null);
+        Item I07 = new Item(7, "piece04", "piece04_info", "Item/Piece2", null);
+        Item I08 = new Item(8, "piece05", "piece05_info", "Item/Piece2", null);
 
-        Item I09 = new Item(9, "蓝色脑图", "放置在摄像头上可以产生特殊效果", "", "Item/BlueMap", new List<string> { "BlueMapEffect" });
-        Item I10 = new Item(10, "SD卡", "相机SD卡", "", "Item/SDCard", null);
-        Item I11 = new Item(11, "记忆残片#6", "记忆残片#6", "", "Item/Piece6", null);
-        Item I12 = new Item(12, "记忆残片#7", "记忆残片#7", "", "Item/Piece7", null);
+        Item I09 = new Item(9, "蓝色脑图", "放置在摄像头上可以产生特殊效果","Item/BlueMap", new List<string> { "BlueMapEffect" });
+        Item I10 = new Item(10, "SD卡", "相机SD卡",  "Item/SDCard", null);
+        Item I11 = new Item(11, "piece06", "piece06_info", "Item/Piece6", null);
+        Item I12 = new Item(12, "piece07", "piece07_info", "Item/Piece7", null);
 
 
         ItemList.Add(I00.ID, I00);
@@ -102,6 +104,7 @@ public class UIItemManager : View
     {
         if (!ItemList.ContainsKey(itemID))
             return;
+        
 
         Transform emptyGrid = GridPanelUI.FindEmptyGrid();
         if (emptyGrid == null)
@@ -111,8 +114,9 @@ public class UIItemManager : View
         }
         Item temp = ItemList[itemID];
         CreateNewItem(temp, emptyGrid);
+        //保存已获得的物品
+        m_GameModel.collectedItems_Temp.Add(ItemList[itemID]);
 
-        
     }
 
     #region 事件回调

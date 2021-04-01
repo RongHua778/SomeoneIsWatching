@@ -35,7 +35,6 @@ public class UIRecordPen : View
 
     private void Start()
     {
-        this.transform.SetAsFirstSibling();
         AddRecordFile(Records[0]);
         AddRecordFile(Records[1]);
         AddRecordFile(Records[2]);

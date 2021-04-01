@@ -9,8 +9,6 @@ public class UIInteractive : MonoBehaviour
     public ItemPanel ItemPanel;
     public GameObject Subtitle;
     public TextHandler subtitle_TextHandler;
-    //public GameModel m_GameModel;
-    //public string currentState = "";
 
     Image ItemImage;
 
@@ -21,13 +19,9 @@ public class UIInteractive : MonoBehaviour
 
     public UIRecordPen recordPenPanel;
     public DigitClock digitClockPanel;
-    public PieceInfo pieceInfo;
+    //public PieceInfo pieceInfo;
     public MultiPanel multiPanel;
 
-    //public override string Name
-    //{
-    //    get { return Const.V_Interactive; }
-    //}
 
     private void Start()
     {
@@ -129,14 +123,6 @@ public class UIInteractive : MonoBehaviour
                 digitClockPanel.gameObject.SetActive(true);
                 ShowSubtitle("digitclock");
                 break;
-            case 2:
-            case 4:
-            case 6:
-            case 7:
-            case 8:
-                pieceInfo.gameObject.SetActive(true);
-                pieceInfo.UpdatePieceInfo(item);
-                break;
 
             default:
                 break;
@@ -226,7 +212,7 @@ public class UIInteractive : MonoBehaviour
                 //CloseAll();
                 VideoManager.Instance.CloseAll();
 
-                m_Monitor.SendEvent(Const.E_GetItem, 2);
+                m_Monitor.SendEvent(Const.E_AddPiece, 2);
                 m_Monitor.m_GameModel.day1_MemoryPiece1 = true;
                 //ShowItemPanel("Image/Camera1/Day1.1d(空抽屉)",0);
                 VideoManager.Instance.ShowImage(9, null, "Image/Camera1/Day1.1d(空抽屉)", false);
@@ -448,7 +434,7 @@ public class UIInteractive : MonoBehaviour
                 //ShowItemPanel("Image/Camera5/餐厅残片#3_无",4);
                 VideoManager.Instance.ShowImage(9, null, "Image/Camera5/餐厅残片#3_无", false);
                 ShowItemPanel();
-                m_Monitor.SendEvent(Const.E_GetItem, 4);
+                m_Monitor.SendEvent(Const.E_AddPiece, 4);
                 m_Monitor.m_GameModel.day2_Piece3 = true;
                 StartCoroutine(ShowMessage("tips8"));
                 break;
@@ -535,7 +521,7 @@ public class UIInteractive : MonoBehaviour
                 VideoManager.Instance.ShowImage(6, "D2-7c_k", "Image/Camera7/D2.7c_k", false);
                 VideoManager.Instance.ShowImage(9, null, "Image/Camera7/d2.7c无碎片", false);
                 ShowItemPanel();
-                m_Monitor.SendEvent(Const.E_GetItem, 6);
+                m_Monitor.SendEvent(Const.E_AddPiece, 6);
                 m_Monitor.m_GameModel.day2_Piece2 = true;
                 StartCoroutine(ShowMessage("tips8"));
                 break;
@@ -564,7 +550,7 @@ public class UIInteractive : MonoBehaviour
                 {
                     VideoManager.Instance.ShowImage(2, "D3-3e_K", "Image/Camera3/D3.3e_K", false);
                     m_Monitor.m_GameModel.day3_Piece5 = true;
-                    m_Monitor.SendEvent(Const.E_GetItem, 8);
+                    m_Monitor.SendEvent(Const.E_AddPiece, 8);
                     StartCoroutine(ShowMessage("tips8"));
                 }
                 break;
@@ -573,7 +559,7 @@ public class UIInteractive : MonoBehaviour
                 {
                     VideoManager.Instance.ShowImage(7, "D3-8a_K", "Image/Camera8/D3.8a_K", false);
                     m_Monitor.m_GameModel.day3_Piece4 = true;
-                    m_Monitor.SendEvent(Const.E_GetItem, 7);
+                    m_Monitor.SendEvent(Const.E_AddPiece, 7);
                     StartCoroutine(ShowMessage("tips8"));
                 }
                 break;

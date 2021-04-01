@@ -18,7 +18,8 @@ public class GameModel : Model
     public string overAllState
     {
         get { return overallstate; }
-        set {
+        set
+        {
             overallstate = value;
             Debug.Log(overallstate);
 
@@ -28,7 +29,7 @@ public class GameModel : Model
 
 
     public bool day1_GetPen = false;
-    public bool day1_PenInLadyBag=false;
+    public bool day1_PenInLadyBag = false;
     public bool day1_MemoryPiece1 = false;
 
     public bool day2_GetBattery1 = false;
@@ -60,13 +61,19 @@ public class GameModel : Model
     public bool day4_Piece6 = false;
     public bool day4_Piece7 = false;
 
-    public void NextDay(bool isTest=false)
+    public List<Item> collectedItems = new List<Item>();
+    public List<Item> collectedItems_Temp = new List<Item>();
+
+    public List<Item> collectedPieces = new List<Item>();
+    public List<Item> collectedPieces_Temp = new List<Item>();
+
+    public void NextDay(bool isTest = false)
     {
-       
+
         switch (Day)
         {
             case 1:
-                if (overallstate == "Day1Period6"||isTest)
+                if ((overallstate == "Day1Period6" && unlockRecord) || isTest)
                 {
                     GameOverState = "Day2";
                     Day = 2;
@@ -105,7 +112,7 @@ public class GameModel : Model
                 break;
 
 
-    }
+        }
     }
 
     public void Reset()
@@ -132,7 +139,7 @@ public class GameModel : Model
         day3_Piece5 = false;
     }
 
-    public void HandleItem(Item item,string targetName)
+    public void HandleItem(Item item, string targetName)
     {
         bool handleSuccess = false;
         switch (item.ID)
@@ -144,6 +151,7 @@ public class GameModel : Model
                         day1_PenInLadyBag = true;
                         SendEvent(Const.E_ShowMessage, "tips2");
                         handleSuccess = true;
+                        collectedItems_Temp.Remove(item);
                         break;
                 }
                 break;
@@ -153,7 +161,7 @@ public class GameModel : Model
                 {
                     case "EnergyRepair1":
                         day2_Camera2Repair = true;
-                        SendEvent(Const.E_Repair,1);
+                        SendEvent(Const.E_Repair, 1);
                         handleSuccess = true;
                         break;
 
@@ -163,7 +171,7 @@ public class GameModel : Model
                         SendEvent(Const.E_Repair, 3);
                         break;
 
-                    
+
                 }
                 break;
 

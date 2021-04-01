@@ -14,10 +14,6 @@ public class InputDectetor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            m_ItemManager.StoreItem(0);
-            
-        }
+
     }
 }

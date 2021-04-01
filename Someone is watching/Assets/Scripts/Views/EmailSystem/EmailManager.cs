@@ -64,13 +64,6 @@ public class EmailManager : View
         emailPanel.UpdateEmail(transform.GetComponent<EmailGrid>().m_Email);
     }
 
-    public void Close()
-    {
-        this.transform.SetAsFirstSibling();
-        Sound.Instance.PlayEffect("SoundEffect/Sound_ComputerOpen");
-
-    }
-    // Start is called before the first frame update
     void Start()
     {
         EmailGrid.OnLeftClick += EmailGrid_OnLeftClick;
@@ -89,18 +82,12 @@ public class EmailManager : View
         Email E04 = new Email(4, "新闻", "明报新闻", "2022年8月16日", "脑科学领域革新，记忆这个尚未探知的领域，再未来十年内，脑记忆深潜成为可能。", false);
         Email E05 = new Email(5, "广告", "利率低至0.3%", "2022年8月16日", "欢迎咨询北华银行最新贷款计划，每人可享有十万额度最低0.3%利率折扣。", false);
 
-
-
-
         EmailList.Add(0, E00);
         EmailList.Add(1, E01);
         EmailList.Add(2, E02);
         EmailList.Add(3, E03);
         EmailList.Add(4, E04);
         EmailList.Add(5, E05);
-
-        //EmailList.Add(4, E01);
-        Close();
 
         AddEmail(2);
         AddEmail(3);
