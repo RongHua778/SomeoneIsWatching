@@ -29,21 +29,7 @@ public class UIInteractive : MonoBehaviour
         ItemImage = ItemPanel.transform.Find("Image").GetComponent<Image>();
 
     }
-    //找到对应的交互Panel
-    //public void FindAndSet(string state)
-    //{
-    //    foreach(string key in m_InterDic.Keys)
-    //    {
-    //        if (key == state)
-    //        {
-    //            m_InterDic[key].gameObject.SetActive(true);
-    //        }
-    //        else
-    //        {
-    //            m_InterDic[key].gameObject.SetActive(false);
-    //        }
-    //    }
-    //}
+
 
     public void CloseAll()
     {

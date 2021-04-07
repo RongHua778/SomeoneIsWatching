@@ -11,7 +11,7 @@ public class GameModel : Model
 
     public bool Calling = false;
 
-    public int Day = 1;
+    public int Day = 2;
     public bool daying = false;
     public bool unlockRecord = false;
     string overallstate = null;
@@ -60,6 +60,18 @@ public class GameModel : Model
     public bool day4_BlueMap = false;
     public bool day4_Piece6 = false;
     public bool day4_Piece7 = false;
+
+    public bool guide1 = false;
+    public bool guide2 = false;
+    public bool guide3 = false;
+    public bool guide4 = false;
+    public bool guide5 = false;
+    public bool guide6 = false;
+    public bool guide7 = false;
+    public bool guide8 = false;
+    public bool guide9 = false;
+    public bool guide10 = false;
+    public bool guide11 = false;
 
     public List<Item> collectedItems = new List<Item>();
     public List<Item> collectedItems_Temp = new List<Item>();

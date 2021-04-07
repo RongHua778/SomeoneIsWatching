@@ -82,9 +82,7 @@ public class UIMonitor : View
                 string e1 = obj as string;
                 if (e1 == "Close")
                 {
-                    //PlayAllVideo();
                     m_UIInteractive.HideSubtitle();
-                    //m_UIInteractive.CloseAll();
                     VideoManager.Instance.CloseAll();
                     m_UIInteractive.CheckAll();
                 }

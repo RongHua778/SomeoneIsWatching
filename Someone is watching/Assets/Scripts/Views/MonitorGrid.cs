@@ -11,7 +11,7 @@ public class MonitorGrid : MonoBehaviour
     public string State;
     public bool Protagonist = false;
     //public delegate void CallBack();
-    public bool isAugmented=false;
+    public bool isAugmented = false;
     public Image ImageCanRepair;
 
     float x;
@@ -25,7 +25,9 @@ public class MonitorGrid : MonoBehaviour
     public bool CanRepair
     {
         get { return m_CanRepair; }
-        set { m_CanRepair = value;
+        set
+        {
+            m_CanRepair = value;
             if (ImageCanRepair == null)
                 return;
             if (m_CanRepair)
@@ -35,7 +37,7 @@ public class MonitorGrid : MonoBehaviour
 
         }
     }
-    
+
 
 
     protected void Awake()
@@ -53,7 +55,7 @@ public class MonitorGrid : MonoBehaviour
 
     public void ActiveIt(bool active)
     {
-        if (active==false)
+        if (active == false)
         {
             IsActive = active;
             //m_ImageBG.gameObject.SetActive(false);
@@ -77,7 +79,7 @@ public class MonitorGrid : MonoBehaviour
             m_RectTransfrom.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, x, 530);
             m_RectTransfrom.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, -y, 290);
 
-            m_UIMonitor.SendEvent(Const.E_Augmented,"Close");
+            m_UIMonitor.SendEvent(Const.E_Augmented, "Close");
             //SendMessageUpwards("AugmentedMonitor", "Close", SendMessageOptions.RequireReceiver);
         }
         else
@@ -96,37 +98,33 @@ public class MonitorGrid : MonoBehaviour
                 m_UIMonitor.SendEvent(Const.E_ShowMessage, "tips16");
                 Debug.Log("无法探索该房间");
             }
-
+            CheckChat();
         }
         Sound.Instance.PlayEffect("SoundEffect/Sound_ComputerOpen");
 
     }
 
-    //public override void PlayVideoClip(string path, string state, bool loop, bool protagonist, CallBackFunc callback, string overAllState)
-    //{
-    //    this.Protagonist = protagonist;
-    //    base.PlayVideoClip(path, state, loop, protagonist, callback, overAllState);
-    //    if (isAugmented)//如果时在打开状态下发生了切换，切换交互元素
-    //    {
-    //        m_UIMonitor.FindAndSetInteract();
-    //    }
-    //}
+    private void CheckChat()
+    {
+        switch (State)
+        {
+            case "D1-6a":
+                if (!m_UIMonitor.m_GameModel.guide3)
+                {
+                    m_UIMonitor.SendEvent(Const.E_AddChat, "guide03");
+                    m_UIMonitor.m_GameModel.guide3 = true;
+                }
+                break;
+            case "D1-7a":
+                if (!m_UIMonitor.m_GameModel.guide2)
+                {
+                    m_UIMonitor.SendEvent(Const.E_AddChat, "guide02");
+                    m_UIMonitor.m_GameModel.guide2 = true;
+                }
+                break;
+        }
 
-//    public override void ShowImage(string path, string state, bool protagonist)
-//    {
-//        this.Protagonist = protagonist
-//;        base.ShowImage(path, state, protagonist);
-//        if (isAugmented)//如果时在打开状态下发生了切换，切换交互元素
-//        {
-//            m_UIMonitor.FindAndSetInteract();
-//        }
-//    }
-
-
-    //public double GetCurrentTime()
-    //{
-    //    return m_VideoPlayer.time;
-    //}
+    }
 
 
 

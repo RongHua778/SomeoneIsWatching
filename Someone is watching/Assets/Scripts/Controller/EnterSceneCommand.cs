@@ -35,6 +35,7 @@ public class EnterSceneCommand : Controller
                 RegisterView(GameObject.Find("UIDialogueManager").GetComponent<UIDialogManager>());
                 RegisterView(GameObject.Find("EmailSystem").GetComponent<EmailManager>());
                 RegisterView(GameObject.Find("UIMemory").GetComponent<UIMemory>());
+                RegisterView(GameObject.Find("UIChatBox").GetComponent<UIChatBox>());
                 break;
 
             case 3://end

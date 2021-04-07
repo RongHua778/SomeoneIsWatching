@@ -38,6 +38,7 @@ public static class Const
     public const string V_Email = "V_Email";
     public const string V_RecordPen = "V_RecordPen";
     public const string V_Memory = "V_Memory";
+    public const string V_ChatBox = "V_ChatBox";
 
     public const string E_ItemGrid = "E_ItemGrid";
     public const string E_GetItem = "E_GetItem";
@@ -56,4 +57,6 @@ public static class Const
 
     public const string E_UnlockRecord = "E_UnlockRecord";
     public const string E_AddPiece = "E_AddPiece";
+    public const string E_AddChat = "E_AddChat";
+
 }

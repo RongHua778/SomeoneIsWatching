@@ -46,7 +46,13 @@ public class UIDesktop : View
         m_Monitor.m_UIInteractive.HideItemPanel();//关闭ItemPanel
         m_Monitor.CloseAllMonitors();
         Sound.Instance.PlayEffect("SoundEffect/Sound_ComputerOpen");
-        //m_Monitor.DayStart(m_GameModel.Day);
+
+        if (!m_GameModel.guide1)//发送第一个指引
+        {
+            SendEvent(Const.E_AddChat, "guide01");
+            m_GameModel.guide1 = true;
+        }
+
     }
 
     public void RecoredPenClick()
