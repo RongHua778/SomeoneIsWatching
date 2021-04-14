@@ -46,7 +46,7 @@ public class UIPhone : MonoBehaviour
             return;
         }
 
-        if (nums.Count >= 8)
+        if (nums.Count >= 9)
             return;
 
         nums.Add(num);
@@ -63,7 +63,7 @@ public class UIPhone : MonoBehaviour
         string now = string.Join("", nums);
         switch (now)
         {
-            case "92000908":
+            case "000101777"://BMF
                 if (m_Monitor.m_GameModel.day2_SeeNum&&m_Monitor.m_GameModel.day2_GetBattery1&&m_Monitor.m_GameModel.day2_GetBattery2)
                 {
                     m_Monitor.m_GameModel.Calling = true;
@@ -77,7 +77,7 @@ public class UIPhone : MonoBehaviour
                 }
                 break;
 
-            case "7758258":
+            case "7758258"://明日报社
                 m_Monitor.m_GameModel.Calling = true;
                 m_Monitor.SendEvent(Const.E_TriggerDialogue, 9);
                 NumArea.text = "通话中";

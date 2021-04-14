@@ -35,6 +35,7 @@ public class UIMainMenu :View
         }
     }
 
+
     public void QuitBtnClick()
     {
         Application.Quit();

@@ -82,7 +82,7 @@ public class UIInteractive : MonoBehaviour
         {
             if (m_Monitor.m_GameModel.day2_GetBattery1 && m_Monitor.m_GameModel.day2_GetBattery2 && m_Monitor.m_GameModel.day2_Tool)
             {
-                VideoManager.Instance.ShowImage(10, "Day2_End", "Image/CG/MainPhoneOn", false);
+                VideoManager.Instance.ShowImage(10, "Day2_End", "Image/CG/Scene_Computer", false);
                 m_Monitor.m_GameModel.day2_CG1 = true;
             }
         }

@@ -9,7 +9,7 @@ public class UIFunctionManager : View
         get { return Const.V_Function; }
     }
 
-    GameModel m_GameModel;
+    public GameModel m_GameModel;
 
     public UIRealworld m_RealWorld;
     public UIDesktop m_Desktop;
@@ -38,18 +38,18 @@ public class UIFunctionManager : View
 
             case 2:
                 ShowPanel(1);
-                VideoManager.Instance.ShowImage(10, "Day2_End", "Image/CG/MainPhoneOn", false);
+                VideoManager.Instance.ShowImage(10, "Day2_End", "Image/CG/Scene_Computer", false);
 
                 break;
 
             case 3:
                 ShowPanel(1);
-                VideoManager.Instance.ShowImage(10, "Day2_End", "Image/CG/MainPhoneON", false);
+                VideoManager.Instance.ShowImage(10, "Day2_End", "Image/CG/Scene_Computer", false);
                 break;
 
             case 4:
                 ShowPanel(1);
-                VideoManager.Instance.ShowImage(10, "CG1", "Image/CG/MainPhoneOFF", false);
+                VideoManager.Instance.ShowImage(10, "CG1", "Image/CG/Scene_Computer", false);
                 SendEvent(Const.E_AddRecord, 3);//新增录音片段
                 SendEvent(Const.E_SendEmail, 4);
                 SendEvent(Const.E_SendEmail, 5);
