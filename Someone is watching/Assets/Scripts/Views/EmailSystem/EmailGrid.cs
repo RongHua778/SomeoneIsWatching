@@ -12,9 +12,9 @@ public class EmailGrid : MonoBehaviour,IPointerClickHandler
 
     public Email m_Email;
     Image star;
-    Text emailName;
-    Text title;
-    Text time;
+    TextHandler emailName;
+    TextHandler title;
+    TextHandler time;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -27,9 +27,9 @@ public class EmailGrid : MonoBehaviour,IPointerClickHandler
 
     public void Init()
     {
-        emailName = transform.Find("Name").GetComponent<Text>();
-        title = transform.Find("Title").GetComponent<Text>();
-        time = transform.Find("Time").GetComponent<Text>();
+        //emailName = transform.Find("Name").GetComponent<TextHandler>();
+        title = transform.Find("Title").GetComponent<TextHandler>();
+        time = transform.Find("Time").GetComponent<TextHandler>();
         star = transform.Find("Star").GetComponent<Image>();
     }
 
@@ -38,9 +38,9 @@ public class EmailGrid : MonoBehaviour,IPointerClickHandler
 
         Init();
         m_Email = email;
-        emailName.text = email.Author;
-        title.text = email.Title;
-        time.text = email.Time;
+        //emailName.text = email.Author;
+        title.SetText(email.Title);
+        time.SetText(email.Time);
         star.gameObject.SetActive(email.Star);
 
         transform.GetComponent<Toggle>().group = transform.parent.GetComponent<ToggleGroup>();

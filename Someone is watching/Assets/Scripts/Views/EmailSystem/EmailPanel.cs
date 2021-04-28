@@ -5,26 +5,26 @@ using UnityEngine.UI;
 
 public class EmailPanel : MonoBehaviour
 {
-    Text title;
-    Text author;
-    Text time;
-    Text content;
+    TextHandler title;
+    //Text author;
+    TextHandler time;
+    TextHandler content;
     // Start is called before the first frame update
     void Start()
     {
-        title = transform.Find("Title").GetComponent<Text>();
-        author = transform.Find("Name").GetComponent<Text>();
-        time = transform.Find("Time").GetComponent<Text>();
-        content = transform.Find("Content").GetComponent<Text>();
+        title = transform.Find("Title").GetComponent<TextHandler>();
+        //author = transform.Find("Name").GetComponent<Text>();
+        time = transform.Find("Time").GetComponent<TextHandler>();
+        content = transform.Find("Content").GetComponent<TextHandler>();
     }
 
 
     public void UpdateEmail(Email email)
     {
-        title.text = email.Title;
-        author.text = email.Author;
-        time.text = email.Time;
-        content.text = email.Content;
+        title.SetText(email.Title);
+        //author.text = email.Author;
+        time.SetText(email.Time);
+        content.SetText(email.Content);
     }
     // Update is called once per frame
     void Update()

@@ -7,6 +7,7 @@ public class UIMainMenu :View
 {
     Image BG;
 
+
     public override string Name { get { return Const.V_MainMenu; } }
 
     void Start()
@@ -34,7 +35,6 @@ public class UIMainMenu :View
 
         }
     }
-
 
     public void QuitBtnClick()
     {
