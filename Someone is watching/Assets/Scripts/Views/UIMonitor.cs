@@ -153,6 +153,9 @@ public class UIMonitor : View
                 ActiveMonitor(7, true);
                 ActiveMonitor(8, false);
 
+                m_Monitors[1].CanRepair = true;
+                m_Monitors[3].CanRepair = true;
+
                 Segment seg1 = new Segment(0, "Video/Camera1/D1.1a", "D1-1a", true,false);
                 Segment seg2 = new Segment(2, "Video/Camera3/D1.3a", "D1-3a", false, true);
                 Segment seg3 = new Segment(4, "Video/Camera5/D1.5a", "D1-5a", false, true);
@@ -355,8 +358,7 @@ public class UIMonitor : View
         VideoManager.Instance.PlayVideoClip(seg5);
 
 
-        m_Monitors[1].CanRepair = true;
-        m_Monitors[3].CanRepair = true;
+
     }
 
 

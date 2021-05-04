@@ -132,11 +132,11 @@ public class DigitClock : MonoBehaviour
                     m_UIMonitor.m_GameModel.GameOverState = "ClockWrong";
                     Game.Instance.LoadScene(3);
                 }
-                DefaultTime = new List<int> { num0, num1,num2,num3};
+                DefaultTime = new List<int> { num0, num1, num2, num3 };
                 break;
 
             case "Day1Period4":
-                if (num0 == 2 && num1 == 1 && num2 == 0 && num3 == 0)
+                if (num0 == 2 && num1 == 1 && num2 == 0 && num3 == 0 && m_UIMonitor.m_GameModel.day1_MemoryPiece1)
                 {
                     m_UIMonitor.Day1Period5();
                     Sound.Instance.PlayEffect("SoundEffect/Sound_Distortion");

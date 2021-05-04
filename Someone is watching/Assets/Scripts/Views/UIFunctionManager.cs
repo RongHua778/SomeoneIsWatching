@@ -38,19 +38,23 @@ public class UIFunctionManager : View
 
             case 2:
                 ShowPanel(1);
-                VideoManager.Instance.ShowImage(10, "Day2_End", "Image/CG/Scene_Computer", false);
+                SendEvent(Const.E_UnlockRecord, true);
+                SendEvent(Const.E_GetItem, 1);//获得时钟
+                SendEvent(Const.E_AddPiece, 2);//获得记忆碎片1
+                VideoManager.Instance.ShowImage(10, "Day2_Desk", "Image/CG/Scene_Computer", false);
 
                 break;
 
             case 3:
                 ShowPanel(1);
-                VideoManager.Instance.ShowImage(10, "Day2_End", "Image/CG/Scene_Computer", false);
+                VideoManager.Instance.ShowImage(10, "Day2_Desk", "Image/CG/Scene_Computer", false);
                 break;
 
             case 4:
                 ShowPanel(1);
-                VideoManager.Instance.ShowImage(10, "CG1", "Image/CG/Scene_Computer", false);
-                SendEvent(Const.E_AddRecord, 3);//新增录音片段
+                VideoManager.Instance.ShowImage(10, "Day1_Desk", "Image/CG/Scene_Computer", false);
+                SendEvent(Const.E_AddRecord, 0);
+                SendEvent(Const.E_AddRecord, 4);//新增录音片段
                 SendEvent(Const.E_SendEmail, 4);
                 SendEvent(Const.E_SendEmail, 5);
 

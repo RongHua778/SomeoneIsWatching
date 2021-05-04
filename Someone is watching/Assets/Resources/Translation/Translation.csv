@@ -1,8 +1,10 @@
 ﻿key,chinese,english,remark
-start,开始游戏,Start,这里写备注，不可以用英文逗号哦
+start,新游戏,New Game,这里写备注，不可以用英文逗号哦
 language,语言：简体中文,Language: English,切换语言按钮
 back,返回,Back
 setting,设置,Setting,
+save,保存并退出,Save & Quit，
+continue,继续游戏,Continue,
 quit,退出,Quit,
 load,读取,Load,
 credit,制作名单,Credit,
@@ -76,8 +78,9 @@ tips12,这个水龙头似乎坏了,This faucet seems to be broken.,
 tips13,发现了一个“相机SD卡”,Found a SD card for camera,
 tips14,获得了“蓝色胶片”,Obtained XXX,
 tips15,杯子被打翻了,The cup is spilled,
-tips16,她还在这里，无法探索,can not explore while she still here,
-tips17,解锁了录音功能,unlock record function,
+tips16,她还在这里，无法探索,Can not explore while she still here,
+tips17,解锁了录音功能,Unlock record function,
+tips18,获得了药品,Get a medicine,
 guide01,你首先要找的，我们称之为记忆碎片。它是碎掉的残片，唯有拼凑重组起来，才能还原出当日的真相。,The first thing you need to find is what we call a "memory piece". It is the shattered fragments that can only be pieced together and reconstructed to reveal the truth of those days.,
 guide02,为什么不从最简单的做起，看看被人丢弃之物？有时候，珍贵的东西，也会被丢进垃圾桶里。,Why not start with the simplest and look at what gets dumped? Sometimes precious things， also get thrown in the trash.，
 guide03,时间的观念在这个世界极为重要。啊，我似乎说多了。,The idea of time is extremely important in this world.Ah， I seem to have spoken too much.	，
@@ -102,11 +105,11 @@ piece05,记忆碎片#5,MemoryPiece#5,
 piece06,记忆碎片#6,MemoryPiece#6,
 piece07,记忆碎片#7,MemoryPiece#7,
 piece08,记忆碎片#8,MemoryPiece#8,
-piece01_info,医生的话让我很难过。被我牵连的那些患者的脸，那些无辜的死者，一直在我眼前回闪。我哪里也不想去，打车回家已经是晚上9点了，只想早点休息。,no tanslation yet,
-piece02_info,服药的剂量再次增加了。从一日一次增加到一日三次，每次花花绿绿的药丸倒在我的手心，我都在颤抖。我明显感觉到死神的迫近，尽管死神只是一个虚无缥缈的概念。在死亡之前，我还有事情要做。我还有事情……要做……,no tanslation yet,
-piece03_info,父亲已经不在我们身边很多年了。他收藏了很多洋酒，但他滴酒不沾。大家都在传，他失意之后开始酗酒。但在我模糊的记忆中，他的神志一直是清醒的。我最后一次见到父亲是个深夜，那天晚上似乎还有工作，他急匆匆地回家拿走了什么东西，眼底布满了血丝。他似乎想开口说什么，最后只是沉默地招手让我过来，摸了摸我的头。,no tanslation yet,
-piece04_info,医生判断我有严重的药物依赖性，到了不服药就无法安稳入眠的程度。我感觉黑暗中总有一双眼睛，在监视着我。我没有地方可以逃，这里的一切都不是安全的。医生说那是精神过于紧张产生的幻觉，她的眼神就像在看一个被害妄想。我知道那不是幻觉，绝对不是。有谁在看着我。,no tanslation yet,
-piece05_info,我不知道那种恶心的感觉是什么。罪恶感？负罪感？真正应该有负罪感的人不是我，而是他们。这一切都是谎言，所有我们认知的事实都是虚构的。不要相信你看见的、听见的任何东西。,no tanslation yet,
+piece01_info,医生的话让我很难过。被我牵连的那些患者的脸，那些无辜的死者，一直在我眼前回闪。我哪里也不想去，打车回家已经是晚上9点了，只想早点休息。,The doctor's words made me sad.\nThe faces of the patients I implicated， the innocent dead， kept flashing before my eyes.\nI didn't want to go anywhere， it was already 9pm when I took a taxi home.  \nI just wanted to get an early night's rest.,
+piece02_info,服药的剂量再次增加了。从一日一次增加到一日三次，每次花花绿绿的药丸倒在我的手心，我都在颤抖。我明显感觉到死神的迫近，尽管死神只是一个虚无缥缈的概念。在死亡之前，我还有事情要做。我还有事情……要做……,The dosage of the medicine was increased again.\nIt increased from once a day to three times a day，and I trembled each time the flowery pills were poured into my palms.\nI could clearly feel the imminence of death， even though it was only a nebulous concept.\nI had things to do before I died.\nI still have things to do ......,
+piece03_info,父亲已经不在我们身边很多年了。他收藏了很多洋酒，但他滴酒不沾。大家都在传，他失意之后开始酗酒。但在我模糊的记忆中，他的神志一直是清醒的。我最后一次见到父亲是个深夜，那天晚上似乎还有工作，他急匆匆地回家拿走了什么东西，眼底布满了血丝。他似乎想开口说什么，最后只是沉默地招手让我过来，摸了摸我的头。,My father has not been with us for many years.He had a large collection of foreign wine， but he didn't drink a drop.\nIt was rumoured that he had started drinking after his disillusionment.\nBut in my vague memory， he was always sober.\nThe last time I saw my father was late at night, when it seemed he had work to do， and he came home in a hurry to take something away，bloodshot under his eyes.\nHe seemed to want to say something， but in the end he just beckoned me over in silence and touched my head.,
+piece04_info,医生判断我有严重的药物依赖性，到了不服药就无法安稳入眠的程度。我感觉黑暗中总有一双眼睛，在监视着我。我没有地方可以逃，这里的一切都不是安全的。医生说那是精神过于紧张产生的幻觉，她的眼神就像在看一个被害妄想。我知道那不是幻觉，绝对不是。有谁在看着我。,The doctor judged that I had a severe drug dependency， to the extent that I could not sleep peacefully without taking my medication.\nI feel like there is always a pair of eyes in the dark watching me.\nI had no place to escape to， nothing was safe here.The doctor said it was a hallucination from overwhelming stress and that she looked at me like I was a victim of a delusion.\nI knew it wasn't a hallucination， absolutely not.\nThere was someone watching me.,,
+piece05_info,我不知道那种恶心的感觉是什么。罪恶感？负罪感？真正应该有负罪感的人不是我，而是他们。这一切都是谎言，所有我们认知的事实都是虚构的。不要相信你看见的、听见的任何东西。,I don't know what that sick feeling is.A feeling of guilt? A sense of guilt?\nThe person who should really feel guilty isn't me. It should be them.\nIt's all a lie， all the facts we perceive are fiction.\nDon't believe anything you see or hear. Don't! ,
 7,7,7
 email01_title,药研科学界许博士，午夜独自驾驶意外身亡,Dr. Xu, A Pharmaceutical Research Scientist, Died Of A Driving Accident,
 email02_title,财务人事部,Finance and Personnel Department,

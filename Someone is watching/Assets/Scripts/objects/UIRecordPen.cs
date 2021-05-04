@@ -35,11 +35,11 @@ public class UIRecordPen : View
 
     private void Start()
     {
-        AddRecordFile(Records[0]);
+        //AddRecordFile(Records[0]);
         AddRecordFile(Records[1]);
         AddRecordFile(Records[2]);
         AddRecordFile(Records[3]);
-        AddRecordFile(Records[4]);
+        //AddRecordFile(Records[4]);
     }
 
     public void AddRecordFile(Record rec)
@@ -70,16 +70,6 @@ public class UIRecordPen : View
         m_PlayPanel.ShowPanel(rec);
         m_Record = rec;
     }
-
-
-
-
-
-
-
-
-
-
 
     public override void RegisterEvents()
     {

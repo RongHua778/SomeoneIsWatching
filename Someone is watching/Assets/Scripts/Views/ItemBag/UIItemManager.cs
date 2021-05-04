@@ -34,10 +34,10 @@ public class UIItemManager : View
 
     private void Start()
     {
-        foreach (var item in m_GameModel.collectedItems)
-        {
-            StoreItem(item.ID);
-        }
+        //foreach (var item in m_GameModel.collectedItems)
+        //{
+        //    StoreItem(item.ID);
+        //}
     }
     private void Update()
     {
@@ -80,6 +80,7 @@ public class UIItemManager : View
         Item I10 = new Item(10, "SD卡", "相机SD卡",  "Item/SDCard", null);
         Item I11 = new Item(11, "piece06", "piece06_info", "Item/Piece6", null);
         Item I12 = new Item(12, "piece07", "piece07_info", "Item/Piece7", null);
+        Item I13 = new Item(13, "medicine", "medecine", "Item/Medecine", null);
 
 
         ItemList.Add(I00.ID, I00);
@@ -95,8 +96,7 @@ public class UIItemManager : View
         ItemList.Add(I10.ID, I10);
         ItemList.Add(I11.ID, I11);
         ItemList.Add(I12.ID, I12);
-
-
+        ItemList.Add(I13.ID, I13);
 
     }
 

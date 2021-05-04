@@ -11,7 +11,7 @@ public class GameModel : Model
 
     public bool Calling = false;
 
-    public int Day = 2;
+    public int Day = 3;
     public bool daying = false;
     public bool unlockRecord = false;
     string overallstate = null;
@@ -85,7 +85,7 @@ public class GameModel : Model
         switch (Day)
         {
             case 1:
-                if ((overallstate == "Day1Period6" && unlockRecord) || isTest)
+                if ((overallstate == "Day1Period6" && unlockRecord && day1_MemoryPiece1) || isTest)
                 {
                     GameOverState = "Day2";
                     Day = 2;
@@ -149,6 +149,8 @@ public class GameModel : Model
         day2_WaterPungRepair = false;
         day3_Piece4 = false;
         day3_Piece5 = false;
+
+        guide1 = guide2 = guide3 = guide4 = guide5 = guide6 = guide7 = guide8 = guide9 = guide10 = guide11 = false;
     }
 
     public void HandleItem(Item item, string targetName)

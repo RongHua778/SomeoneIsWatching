@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &62172040 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9113090239785268049, guid: b707711c35b438341b7fe4fbee236ad6,
+    type: 3}
+  m_PrefabInstance: {fileID: 818040901}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &249051184
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttentionEvents: []
+  loadGameBtn: {fileID: 62172040}
 --- !u!1001 &292854091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1510,7 +1523,7 @@ PrefabInstance:
     - target: {fileID: 9113090239785268049, guid: b707711c35b438341b7fe4fbee236ad6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9113090239785268049, guid: b707711c35b438341b7fe4fbee236ad6,
         type: 3}
@@ -1520,7 +1533,12 @@ PrefabInstance:
     - target: {fileID: 9113090239785268049, guid: b707711c35b438341b7fe4fbee236ad6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitBtnClick
+      value: LoadGameClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113090239785268049, guid: b707711c35b438341b7fe4fbee236ad6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9113090239785268055, guid: b707711c35b438341b7fe4fbee236ad6,
         type: 3}
@@ -1852,9 +1870,9 @@ MonoBehaviour:
     Yuran\n \nASSOCIATE SCRIPTWRITER\nChen Yuqiong\n\n\nACTOR  \n\nZhao Dan\nVOICES
     \nWu Ye\nZhen Junjian \nLi Haiheng \nLiu Xinru \nShi Jiahao \nZhou Ziyou \nWang
     Mengqi \n\nART DIRECTOR \nFang Ziwen\n\nCINEMATOGRAPHER  \nWu Xuenian\n\nSCRIPT
-    SUPERVISOR \nXu Yuan\n\nSET DESIGNER \nLisha\n\nMAKEUP \nJian Haiwen\n\nEDITOR\n
-    Chen Chenyue / Xu Chenhua \n\nSOUND \nWang Xuan \n\n\nSPECIAL THANKS \n\nYIM
-    Chun Pang \nLEUNG Hiu Ming"
+    SUPERVISOR \nXu Yuan\n\nSET DESIGNER \nLisha\n\nMAKEUP \nJian Haiwen\n\nEDITOR\nChen
+    Chenyue / Xu Chenhua \n\nSOUND \nWang Xuan \n\n\nSPECIAL THANKS \n\nYIM Chun
+    Pang \nLEUNG Hiu Ming"
 --- !u!222 &1274827735
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2414,7 +2432,7 @@ PrefabInstance:
     - target: {fileID: 9113090240973157465, guid: b707711c35b438341b7fe4fbee236ad6,
         type: 3}
       propertyPath: m_Text
-      value: Start
+      value: New Game
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b707711c35b438341b7fe4fbee236ad6, type: 3}

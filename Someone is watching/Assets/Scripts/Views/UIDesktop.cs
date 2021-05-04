@@ -121,17 +121,7 @@ public class UIDesktop : View
     void Start()
     {
         m_GameModel = GetModel<GameModel>() as GameModel;
-        if (m_GameModel.unlockRecord)
-            UnlockRecordBtn(m_GameModel.unlockRecord);
-
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 
     public override void RegisterEvents()
     {

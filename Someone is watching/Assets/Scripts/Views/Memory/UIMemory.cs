@@ -23,10 +23,10 @@ public class UIMemory : View
     private void Start()
     {
         ClosePieceInfo();
-        foreach (var item in m_GameModel.collectedPieces)
-        {
-            AddPiece(item);
-        }
+        //foreach (var item in m_GameModel.collectedPieces)
+        //{
+        //    AddPiece(item);
+        //}
     }
     public void AddPiece(Item item)
     {

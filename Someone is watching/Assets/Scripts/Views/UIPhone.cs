@@ -77,7 +77,7 @@ public class UIPhone : MonoBehaviour
                 }
                 break;
 
-            case "7758258"://明日报社
+            case "17749079"://明日报社
                 m_Monitor.m_GameModel.Calling = true;
                 m_Monitor.SendEvent(Const.E_TriggerDialogue, 9);
                 NumArea.text = "通话中";

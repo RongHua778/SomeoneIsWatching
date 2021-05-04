@@ -86,12 +86,12 @@ public class UIEndScene : View
         if (!lose)
         {
             MainBtnTxt.SetText("next");
-            SetItemsGet(false);
+            //SetItemsGet(false);
         }
         else
         {
             MainBtnTxt.SetText("restart");
-            SetItemsGet(true);
+            //SetItemsGet(true);
         }
         EndText.SetText(endText);
     }

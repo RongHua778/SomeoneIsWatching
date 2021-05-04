@@ -35,7 +35,7 @@ public class UIDialogManager : View
         m_GameModel = GetModel<GameModel>() as GameModel;
         details = new Queue<DialogueDetail>();
 
-        foreach(DialogueTrigger trigger in Triggers)
+        foreach (DialogueTrigger trigger in Triggers)
         {
             TriggerDIC.Add(trigger.dialogue.ID, trigger);
         }
@@ -45,12 +45,12 @@ public class UIDialogManager : View
     public void StartDialogue(Dialogue dialogue)
     {
         dialogSystem.SetActive(true);
-        animator.SetBool("IsOpen",true);
+        animator.SetBool("IsOpen", true);
         currentDialog = dialogue;
         NameText.text = dialogue.name;
 
         details.Clear();
-        foreach(DialogueDetail detail in dialogue.details)
+        foreach (DialogueDetail detail in dialogue.details)
         {
             details.Enqueue(detail);
         }
@@ -117,9 +117,9 @@ public class UIDialogManager : View
                 Game.Instance.LoadScene(3);
                 break;
             case 2://黑衣人第一幕
-                Segment seg = new Segment(10,"Video/Animation/Opening_3","Opening3",false,false);
-                Segment seg2 = new Segment(10, "Video/Animation/Opening_4", "Opening3", false, false);
-                VideoManager.Instance.PlaySeq(new List<Segment> { seg,seg2});
+                Segment seg = new Segment(10, "Video/Animation/Opening_3", "Opening3", false, false, null, Day1AnimationEnd);
+                //Segment seg2 = new Segment(10, "Video/Animation/Opening_4", "Opening3", false, false);
+                VideoManager.Instance.PlaySeq(new List<Segment> { seg });
                 break;
 
             case 24:
@@ -130,14 +130,19 @@ public class UIDialogManager : View
         dialogSystem.SetActive(false);
     }
 
+    private void Day1AnimationEnd()
+    {
+        VideoManager.Instance.ShowImage(10, "Day1_Desk", "Image/CG/Scene_Computer", false);
+
+    }
+
     public void Skip()
     {
-        Segment seg2 = new Segment(10, "Video/Animation/Opening_4", "Opening3", false, false);
-        VideoManager.Instance.PlayVideoClip(seg2);
         VideoManager.Instance.StopAll();
+        VideoManager.Instance.ShowImage(10, "Day1_Desk", "Image/CG/Scene_Computer", false);
         dialogSystem.SetActive(false);
         SkipBtn.gameObject.SetActive(false);
-        
+
     }
 
     public override void RegisterEvents()
