@@ -67,14 +67,9 @@ public class UIEndScene : View
                 break;
 
             case "PlayMusicBox":
-                m_VideoPlayer.clip = Resources.Load<VideoClip>("Video/Ending/PlayMusicBox");
-                m_VideoPlayer.Play();
-                StartCoroutine(CheckVideoFinish(PlayMusicBoxEnd));
-                EndTextTrans.gameObject.SetActive(false);
-                MainBtn.gameObject.SetActive(false);
+                Sound.Instance.PlayBg("BGMusic/GameOverMusic", 1f);
+                SetEndImg("CannotSpeak");
                 endText = "ending4";
-                Sound.Instance.PlayEffect("SoundEffect/Music_MusicBox");
-
                 break;
             case "DeadManNoSay":
                 endText = "ending1";
@@ -127,11 +122,6 @@ public class UIEndScene : View
     }
 
 
-    void PlayMusicBoxEnd()
-    {
-        EndTextTrans.gameObject.SetActive(true);
-        MainBtn.gameObject.SetActive(true);
-    }
 
     public void Restart()
     {

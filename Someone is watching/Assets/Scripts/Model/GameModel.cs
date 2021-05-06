@@ -11,7 +11,7 @@ public class GameModel : Model
 
     public bool Calling = false;
 
-    public int Day = 3;
+    public int Day = 2;
     public bool daying = false;
     public bool unlockRecord = false;
     string overallstate = null;
@@ -21,8 +21,8 @@ public class GameModel : Model
         set
         {
             overallstate = value;
+            SendEvent(Const.E_DayEndCheck, DayEndCheck());
             Debug.Log(overallstate);
-
         }
     }
     public string GameOverState = "";
@@ -31,6 +31,7 @@ public class GameModel : Model
     public bool day1_GetPen = false;
     public bool day1_PenInLadyBag = false;
     public bool day1_MemoryPiece1 = false;
+    public bool day1_HeardRecord3 = false;
 
     public bool day2_GetBattery1 = false;
     public bool day2_GetBattery2 = false;
@@ -81,50 +82,68 @@ public class GameModel : Model
 
     public void NextDay(bool isTest = false)
     {
-
         switch (Day)
         {
             case 1:
-                if ((overallstate == "Day1Period6" && unlockRecord && day1_MemoryPiece1) || isTest)
-                {
-                    GameOverState = "Day2";
-                    Day = 2;
-                    daying = false;
-                    Game.Instance.LoadScene(3);
-                }
-                else
-                {
-                    SendEvent(Const.E_ShowMessage, "tips1");
-                }
+                GameOverState = "Day2";
+                Day = 2;
+                daying = false;
+                Game.Instance.LoadScene(3);
+
                 break;
             case 2:
-                if ((day2_Camera2Repair && day2_Camera4Repair && day2_WaterPungRepair) || isTest)
-                {
-                    GameOverState = "Day3";
-                    Day = 3;
-                    Game.Instance.LoadScene(3);
-                }
-                else
-                {
-                    SendEvent(Const.E_ShowMessage, "tips1");
-                }
+                GameOverState = "Day3";
+                Day = 3;
+                Game.Instance.LoadScene(3);
                 break;
 
             case 3:
-                if ((day3_LoginEmail && day3_ReporterWang && day3_RedRecord) || isTest)
+                GameOverState = "Day4";
+                Day = 4;
+                Game.Instance.LoadScene(4);
+                break;
+        }
+    }
+
+    public bool DayEndCheck()
+    {
+        switch (Day)
+        {
+            case 1:
+                if (overallstate == "Day1Period6" && day1_HeardRecord3)
                 {
-                    GameOverState = "Day4";
-                    Day = 4;
-                    Game.Instance.LoadScene(4);
-                }
-                else
-                {
-                    SendEvent(Const.E_ShowMessage, "tips1");
+                    if (!guide5)
+                    {
+                        SendEvent(Const.E_AddChat, "guide05");
+                        guide5 = true;
+                    }
+                    return true;
                 }
                 break;
-
-
+            case 2:
+                if (day2_Camera2Repair && day2_Camera4Repair && day2_WaterPungRepair)
+                {
+                    if (!guide9)
+                    {
+                        SendEvent(Const.E_AddChat, "guide09");
+                        guide9 = true;
+                    }
+                    return true;
+                }
+                break;
+            case 3:
+                if (day3_LoginEmail && day3_ReporterWang && day3_RedRecord)
+                {
+                    if (!guide11)
+                    {
+                        SendEvent(Const.E_AddChat, "guide11");
+                        guide11 = true;
+                    }
+                    return true;
+                }
+                break;
         }
+        return false;
     }
 
     public void Reset()
@@ -136,6 +155,7 @@ public class GameModel : Model
         day1_GetPen = false;
         day1_PenInLadyBag = false;
         day1_MemoryPiece1 = false;
+        day1_HeardRecord3 = false;
         day2_Camera2Repair = false;
         day2_Camera4Repair = false;
         day2_CG1 = false;
@@ -153,7 +173,7 @@ public class GameModel : Model
         guide1 = guide2 = guide3 = guide4 = guide5 = guide6 = guide7 = guide8 = guide9 = guide10 = guide11 = false;
     }
 
-    public void HandleItem(Item item, string targetName)
+    public bool HandleItem(Item item, string targetName)
     {
         bool handleSuccess = false;
         switch (item.ID)
@@ -171,21 +191,26 @@ public class GameModel : Model
                 break;
 
             case 3:
-                switch (targetName)
+                if (overAllState != "Day2Period4")
+                    handleSuccess = false;
+                else
                 {
-                    case "EnergyRepair1":
-                        day2_Camera2Repair = true;
-                        SendEvent(Const.E_Repair, 1);
-                        handleSuccess = true;
-                        break;
+                    switch (targetName)
+                    {
+                        case "EnergyRepair1":
+                            day2_Camera2Repair = true;
+                            SendEvent(Const.E_Repair, 1);
+                            handleSuccess = true;
+                            break;
 
-                    case "EnergyRepair3":
-                        day2_Camera4Repair = true;
-                        handleSuccess = true;
-                        SendEvent(Const.E_Repair, 3);
-                        break;
+                        case "EnergyRepair3":
+                            day2_Camera4Repair = true;
+                            handleSuccess = true;
+                            SendEvent(Const.E_Repair, 3);
+                            break;
 
 
+                    }
                 }
                 break;
 
@@ -216,6 +241,7 @@ public class GameModel : Model
         {
             Sound.Instance.PlayEffect("SoundEffect/Sound_Apply");
         }
+        return handleSuccess;
     }
 
 

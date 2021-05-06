@@ -34,6 +34,7 @@ public class UIRealworld : MonoBehaviour
             case "OpenMail":
                 Segment seg2 = new Segment(10, "Video/Animation/OpenMail", "MailOpen", false, false);
                 VideoManager.Instance.PlayVideoClip(seg2);
+                m_FunctionManager.m_GameModel.day2_SeeNum = true;
                 break;
             case "Box":
                 Segment seg3 = new Segment(10, "Video/Animation/D3_Box", "Day3_Box", false, false);

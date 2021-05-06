@@ -64,30 +64,26 @@ public class UIPhone : MonoBehaviour
         switch (now)
         {
             case "000101777"://BMF
-                if (m_Monitor.m_GameModel.day2_SeeNum&&m_Monitor.m_GameModel.day2_GetBattery1&&m_Monitor.m_GameModel.day2_GetBattery2)
+                if (m_Monitor.m_GameModel.day2_SeeNum)
                 {
                     m_Monitor.m_GameModel.Calling = true;
                     m_Monitor.SendEvent(Const.E_TriggerDialogue,3);
                     NumArea.text = "通话中";
                     Debug.Log("Success Dial");
                 }
-                else
-                {
-                    Debug.Log("Fail Dial");
-                }
                 break;
 
             case "17749079"://明日报社
-                m_Monitor.m_GameModel.Calling = true;
-                m_Monitor.SendEvent(Const.E_TriggerDialogue, 9);
-                NumArea.text = "通话中";
-                m_Monitor.m_GameModel.day3_ReporterWang = true;
-                Debug.Log("Success Dial");
+                if (m_Monitor.m_GameModel.day3_LoginEmail)
+                {
+                    m_Monitor.m_GameModel.Calling = true;
+                    m_Monitor.SendEvent(Const.E_TriggerDialogue, 9);
+                    NumArea.text = "通话中";
+                    m_Monitor.m_GameModel.day3_ReporterWang = true;
+                    Debug.Log("Success Dial");
+                }
                 break;
-
         }
-        
-        
     }
 
     //全自动播放
@@ -151,12 +147,12 @@ public class UIPhone : MonoBehaviour
             case "购买固态":
                 StartCoroutine(PlayDialog(99, "感谢，将会邮递给您。"));
                 NumArea.text = "";
-                m_Monitor.Day2Period4();
+                //m_Monitor.Day2Period4();
                 break;
             case "购买液态":
                 StartCoroutine(PlayDialog(99, "感谢，将会邮递给您。"));
                 NumArea.text = "";
-                m_Monitor.Day2Period4();
+                //m_Monitor.Day2Period4();
 
                 break;
             default:

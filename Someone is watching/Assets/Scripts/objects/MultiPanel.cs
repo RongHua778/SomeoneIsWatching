@@ -14,8 +14,7 @@ public class MultiPanel : MonoBehaviour
     public string State = "";
     Dictionary<int, Sprite[]> PicDics = new Dictionary<int, Sprite[]>();
 
-    private GameObject left;
-    private GameObject right;
+    [SerializeField] GameObject Translation ,left,right= default;
 
     int id = 0;
     private int currentID;
@@ -26,15 +25,7 @@ public class MultiPanel : MonoBehaviour
         medicine,
         book,
     }
-    private void Start()
-    {
-        //PicDics.Add(0, medicines);
-        //PicDics.Add(1, medicineBook);
-        left = transform.Find("Left").gameObject;
-        left.SetActive(false);
-        right = transform.Find("Right").gameObject;
-        currentID = 0;
-    }
+
 
 
     void InitDic()
@@ -46,10 +37,13 @@ public class MultiPanel : MonoBehaviour
     public void UpdatePanel(int id)
     {
         InitDic();
+        this.id = id;
         currentID = 0;
         Pictures = PicDics[id];
-        maxNum = Pictures.Length-1;
+        maxNum = Pictures.Length - 1;
         m_Image.sprite = Pictures[currentID];
+        left.SetActive(false);
+        buttonHelper();
     }
 
     private void buttonHelper()
@@ -58,13 +52,24 @@ public class MultiPanel : MonoBehaviour
         {
             left.SetActive(false);
             right.SetActive(true);
-        } else if(currentID >= maxNum) {
+        }
+        else if (currentID >= maxNum)
+        {
             left.SetActive(true);
             right.SetActive(false);
-        } else
+        }
+        else
         {
             left.SetActive(true);
             right.SetActive(true);
+        }
+        if (currentID == 1 && id == 1&& StaticData.language == "ch")
+        {
+            Translation.SetActive(true);
+        }
+        else
+        {
+            Translation.SetActive(false);
         }
     }
     public void LeftClick()

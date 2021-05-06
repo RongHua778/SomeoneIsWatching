@@ -123,13 +123,13 @@ public class UIMonitor : View
                 m_Monitors[id].CanRepair = false;
                 break;
 
-            case Const.E_ChoiceClick:
-                int num = (int)obj;
-                if (num == 16)
-                {
-                    Day2Period4();//制药电话播放完毕
-                }
-                break;
+            //case Const.E_ChoiceClick:
+            //    int num = (int)obj;
+            //    if (num == 16)
+            //    {
+            //        Day2Period4();//制药电话播放完毕
+            //    }
+            //    break;
         }
     }
 
@@ -182,6 +182,9 @@ public class UIMonitor : View
                 ActiveMonitor(6, true);
                 ActiveMonitor(7, true);
                 ActiveMonitor(8, false);
+
+                m_Monitors[1].CanRepair = true;
+                m_Monitors[3].CanRepair = true;
 
                 Segment seg21 = new Segment(0, "Video/Camera1/D2.1a", "D2-1a", true,true);
                 //ShowImage(2, "Image/Camera3/D2.3a_空", "D2-3a",false);
@@ -316,7 +319,7 @@ public class UIMonitor : View
         //PlayClip(seg0);
 
         Segment seg1 = new Segment(0, "Video/Camera1/D2.1h", "D2-1h", false, false);
-        Segment seg2 = new Segment(2, "Video/Camera3/D2.3h", "D2-3h", true, false,null,Day2Period3);
+        Segment seg2 = new Segment(2, "Video/Camera3/D2.3h", "D2-3h", true, false,null,Day2Period2_End);
         Segment seg3 = new Segment(0, "Video/Camera1/D2.1g", "D2-1g", true, false);
 
         VideoManager.Instance.PlaySeq(new List<Segment> { seg1, seg2, seg3 });
@@ -326,7 +329,7 @@ public class UIMonitor : View
 
     }
 
-    public void Day2Period3()
+    public void Day2Period2_End()
     {
 
         VideoManager.Instance.ShowImage(2, "D2-3a", "Image/Camera3/D2.3a_空",false);
@@ -362,13 +365,4 @@ public class UIMonitor : View
     }
 
 
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            //this.gameObject.SetActive(false);
-            //this.gameObject.SetActive(true);
-        }
-    }
 }

@@ -14,7 +14,7 @@ public class UIFunctionManager : View
     public UIRealworld m_RealWorld;
     public UIDesktop m_Desktop;
 
-
+    [SerializeField] GameObject NextDayBtnObj = default;
     private void Start()
     {
         m_GameModel = GetModel<GameModel>() as GameModel;
@@ -42,6 +42,11 @@ public class UIFunctionManager : View
                 SendEvent(Const.E_GetItem, 1);//获得时钟
                 SendEvent(Const.E_AddPiece, 2);//获得记忆碎片1
                 VideoManager.Instance.ShowImage(10, "Day2_Desk", "Image/CG/Scene_Computer", false);
+                if (!m_GameModel.guide8)
+                {
+                    SendEvent(Const.E_AddChat, "guide08");
+                    m_GameModel.guide8 = true;
+                }
 
                 break;
 
@@ -85,14 +90,11 @@ public class UIFunctionManager : View
 
     }
 
-    private void Update()
-    {
-     
-    }
 
     public override void RegisterEvents()
     {
         AttentionEvents.Add(Const.E_ShowPanel);
+        AttentionEvents.Add(Const.E_DayEndCheck);
     }
 
     public override void HandleEvent(string eventName, object obj)
@@ -103,6 +105,10 @@ public class UIFunctionManager : View
                 int id = (int)obj;
                 ShowPanel(id);
                 
+                break;
+            case Const.E_DayEndCheck:
+                bool check = (bool)obj;
+                DayEndCheck(check);
                 break;
         }
     }
@@ -116,6 +122,18 @@ public class UIFunctionManager : View
     {
         m_GameModel.NextDay(true);
         Game.Instance.LoadScene(3);
+    }
+
+    public void DayEndCheck(bool check)
+    {
+        if (check)
+        {
+            NextDayBtnObj.SetActive(true);
+        }
+        else
+        {
+            NextDayBtnObj.SetActive(false);
+        }
     }
 
     public void NextDayBtn()

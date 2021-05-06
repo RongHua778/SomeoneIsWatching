@@ -10,6 +10,7 @@ public class UIRecordPen : View
         get { return Const.V_RecordPen; }
     }
 
+   public GameModel m_GameModel;
     public UIDesktop m_UIdesktop;
     public RecordPlayPanel m_PlayPanel;
     public PassWordPanel m_PassWordPanel;
@@ -24,6 +25,7 @@ public class UIRecordPen : View
     // Start is called before the first frame update
     void Awake()
     {
+        m_GameModel = GetModel<GameModel>() as GameModel;
         RecordGrid.OnLeftClick += FileClick;
     }
 

@@ -47,10 +47,14 @@ public class UIDesktop : View
         m_Monitor.CloseAllMonitors();
         Sound.Instance.PlayEffect("SoundEffect/Sound_ComputerOpen");
 
-        if (!m_GameModel.guide1)//发送第一个指引
+        if (!m_GameModel.guide1 && m_GameModel.Day == 1)//发送第一个指引
         {
             SendEvent(Const.E_AddChat, "guide01");
             m_GameModel.guide1 = true;
+        }else if (!m_GameModel.guide6 && m_GameModel.Day == 2)
+        {
+            SendEvent(Const.E_AddChat, "guide06");
+            m_GameModel.guide6 = true;
         }
 
     }

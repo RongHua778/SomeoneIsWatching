@@ -28,17 +28,17 @@ public class UIChatBox : View
             child.SetActive(true);
         redDot.SetActive(false);
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            AddChat("guide01");
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            AddChat("guide01");
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.W))
+    //    {
+    //        AddChat("guide01");
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.S))
+    //    {
+    //        AddChat("guide01");
+    //    }
+    //}
 
     public override void RegisterEvents()
     {

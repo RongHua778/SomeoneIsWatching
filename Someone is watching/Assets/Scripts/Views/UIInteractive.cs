@@ -61,7 +61,7 @@ public class UIInteractive : MonoBehaviour
 
     public void CheckAll()
     {
-        D2CheckCG();
+        D2Check();
         D2CheckEnd();
     }
 
@@ -76,17 +76,12 @@ public class UIInteractive : MonoBehaviour
     }
 
     //直接把手机亮起来
-    void D2CheckCG()//检查是否已经收集齐2个电池和查看了药瓶//需要等待弱干时间
+    void D2Check()//检查是否已经收集齐2个电池和查看了药瓶//需要等待弱干时间
     {
-        if (!m_Monitor.m_GameModel.day2_CG1)
+        if (m_Monitor.m_GameModel.day2_GetBattery1 && m_Monitor.m_GameModel.day2_GetBattery2 && m_Monitor.m_GameModel.day2_Tool)
         {
-            if (m_Monitor.m_GameModel.day2_GetBattery1 && m_Monitor.m_GameModel.day2_GetBattery2 && m_Monitor.m_GameModel.day2_Tool)
-            {
-                VideoManager.Instance.ShowImage(10, "Day2_End", "Image/CG/Scene_Computer", false);
-                m_Monitor.m_GameModel.day2_CG1 = true;
-            }
+            m_Monitor.m_GameModel.overAllState = "Day2Period3";
         }
-
     }
 
     void ShowSubtitle(string key)
@@ -231,8 +226,10 @@ public class UIInteractive : MonoBehaviour
                 break;
 
             case "D15fLadyBag":
-                if(!m_Monitor.m_GameModel.unlockRecord)
+                if (!m_Monitor.m_GameModel.unlockRecord)
+                {
                     VideoManager.Instance.ShowImage(9, "D1-5f_Y", "Image/Camera5/D1.5f_y", false);
+                }
                 else
                     VideoManager.Instance.ShowImage(9, "D1-5f_K", "Image/Camera5/D1.5f_k", false);
                 ShowItemPanel();
@@ -242,14 +239,16 @@ public class UIInteractive : MonoBehaviour
                 VideoManager.Instance.ShowImage(9, "D1-5f_K", "Image/Camera5/D1.5f_k", false);
                 m_Monitor.SendEvent(Const.E_UnlockRecord, true);
                 m_Monitor.SendEvent(Const.E_ShowMessage, "tips17");
+                if (!m_Monitor.m_GameModel.guide4)
+                {
+                    m_Monitor.SendEvent(Const.E_AddChat, "guide04");
+                    m_Monitor.m_GameModel.guide4 = true;
+                }
                 VideoManager.Instance.CloseAll();
                 break;
 
             case "D13aPaperTip":
-                //CloseAll();
                 VideoManager.Instance.CloseAll();
-
-                //ShowItemPanel("Image/Camera3/镜头三day1-3b（简体)",2);
                 VideoManager.Instance.ShowImage(9, null, "Image/Camera3/镜头三day1-3b（简体)", false);
                 ShowItemPanel();
                 break;
@@ -257,32 +256,21 @@ public class UIInteractive : MonoBehaviour
             case "D17aRubishCan":
                 if (!m_Monitor.m_GameModel.day1_GetPen)
                 {
-                    //CloseAll();
                     VideoManager.Instance.CloseAll();
-
-                    //ShowItemPanel("Image/Camera7/垃圾桶内部特写",6);
                     VideoManager.Instance.ShowImage(9, "RubishCan", "Image/Camera7/垃圾桶内部特写", false);
                     ShowItemPanel();
-
-                    //FindAndSet("RubishCan");
                 }
                 else
                 {
-                    //CloseAll();
                     VideoManager.Instance.CloseAll();
-
-                    //ShowItemPanel("Image/Camera7/垃圾桶内部无录音笔",6);
                     VideoManager.Instance.ShowImage(9, null, "Image/Camera7/垃圾桶内部无录音笔", false);
                     ShowItemPanel();
                 }
                 break;
 
             case "D17aRecordPen":
-                //CloseAll();
                 VideoManager.Instance.CloseAll();
-
                 m_Monitor.SendEvent(Const.E_GetItem, 0);
-                // ShowItemPanel("Image/Camera7/垃圾桶内部无录音笔",6);
                 VideoManager.Instance.ShowImage(9, null, "Image/Camera7/垃圾桶内部无录音笔", false);
                 ShowItemPanel();
 
@@ -310,24 +298,27 @@ public class UIInteractive : MonoBehaviour
                 break;
 
             case "D2MusicBox":
-                VideoManager.Instance.FindAndSet(9, "MusicBox");
-
+                //VideoManager.Instance.FindAndSet(9, "MusicBox");
+                Sound.Instance.PlayEffect("SoundEffect/Music_MusicBox");
+                Segment seg = new Segment(9, "Video/Ending/PlayMusicBox", "", false, false,null,PlayMusicBoxEnd);
+                VideoManager.Instance.PlayVideoClip(seg);
+                ShowItemPanel();
                 break;
 
-            case "WatchMusicBox":
-                ShowSubtitle("musicbox");
-                VideoManager.Instance.FindAndSet(9, "D2Desk");
-                //FindAndSet("D2Desk");
-                break;
+            //case "WatchMusicBox":
+            //    ShowSubtitle("musicbox");
+            //    VideoManager.Instance.FindAndSet(9, "D2Desk");
+            //    //FindAndSet("D2Desk");
+            //    break;
 
-            case "PlayMusicBox":
-                //HideItemPanel();
-                //Segment seg0 = new Segment(9, "Video/Camera1/PlayMusicBox", "D2-1g", false, false ,null,PlayMusicBoxEnd);
-                //VideoManager.Instance.PlayVideoClip(seg0);
-                PlayMusicBoxEnd();
-                //m_Monitor.PlayClip(seg0);
-                //CloseAll();
-                VideoManager.Instance.CloseAll();
+            //case "PlayMusicBox":
+            //    //HideItemPanel();
+            //    //Segment seg0 = new Segment(9, "Video/Camera1/PlayMusicBox", "D2-1g", false, false ,null,PlayMusicBoxEnd);
+            //    //VideoManager.Instance.PlayVideoClip(seg0);
+            //    PlayMusicBoxEnd();
+            //    //m_Monitor.PlayClip(seg0);
+            //    //CloseAll();
+            //    VideoManager.Instance.CloseAll();
 
                 break;
 
@@ -497,9 +488,9 @@ public class UIInteractive : MonoBehaviour
                 break;
 
             case "D2Medicine":
-                ShowItemInBag(3);
-
-                m_Monitor.m_GameModel.day2_SeeNum = true;
+                //ShowItemInBag(3);
+                VideoManager.Instance.ShowImage(9, "Medicine", "Image/Camera7/Medicine#2", false);
+                ShowItemPanel();
                 break;
 
             case "D2Piece2":
@@ -657,8 +648,6 @@ public class UIInteractive : MonoBehaviour
         m_Monitor.m_GameModel.GameOverState = "PlayMusicBox";
         Game.Instance.LoadScene(3);
         VideoManager.Instance.CloseAll();
-
-        //CloseAll();
     }
 
     #endregion

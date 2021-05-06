@@ -152,7 +152,10 @@ public class UIItemManager : View
             //Debug.Log(TargetName);
             if (item.AttentionStates.Contains(TargetName))
             {
-                m_GameModel.HandleItem(item,TargetName);
+                if (!m_GameModel.HandleItem(item, TargetName))
+                {
+                    CreateNewItem(item, prevTransform);
+                }
             }
             else
             {

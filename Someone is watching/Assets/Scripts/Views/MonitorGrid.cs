@@ -122,6 +122,13 @@ public class MonitorGrid : MonoBehaviour
                     m_UIMonitor.m_GameModel.guide2 = true;
                 }
                 break;
+            case "D2-3a":
+                if (!m_UIMonitor.m_GameModel.guide7)
+                {
+                    m_UIMonitor.SendEvent(Const.E_AddChat, "guide07");
+                    m_UIMonitor.m_GameModel.guide7 = true;
+                }
+                break;
         }
 
     }

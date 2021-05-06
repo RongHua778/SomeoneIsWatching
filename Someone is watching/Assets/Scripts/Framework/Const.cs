@@ -44,6 +44,7 @@ public static class Const
     public const string E_GetItem = "E_GetItem";
     public const string E_GameEnd = "E_GameEnd";
     public const string E_ShowMessage = "E_ShowMessage";
+    public const string E_DayEndCheck = "E_DayEndCheck";
     public const string E_OpenMonitor = "E_OpenMonitor";
     public const string E_ChoiceClick = "E_ChoiceClick";
 

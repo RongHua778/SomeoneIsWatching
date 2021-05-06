@@ -148,6 +148,19 @@ public class DigitClock : MonoBehaviour
                 }
                 DefaultTime = new List<int> { num0, num1, num2, num3 };
                 break;
+            case "Day2Period3":
+                if (num0 == 2 && num1 == 2 && num2 == 0 && num3 == 0)
+                {
+                    m_UIMonitor.Day2Period4();
+                    Sound.Instance.PlayEffect("SoundEffect/Sound_Distortion");
+                }
+                else if (num0 != DefaultTime[0] || num1 != DefaultTime[1] || num2 != DefaultTime[2] || num3 != DefaultTime[3])
+                {
+                    m_UIMonitor.m_GameModel.GameOverState = "ClockWrong";
+                    Game.Instance.LoadScene(3);
+                }
+                DefaultTime = new List<int> { num0, num1, num2, num3 };
+                break;
             default:
                 break;
         }

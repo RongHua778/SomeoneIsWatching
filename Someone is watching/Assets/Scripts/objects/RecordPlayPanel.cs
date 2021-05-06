@@ -46,6 +46,11 @@ public class RecordPlayPanel : MonoBehaviour
         {
             m_RecordPen.m_UIdesktop.m_GameModel.day3_RedRecord = true;
         }
+        else if (m_Rec.ID == 4)
+        {
+            m_RecordPen.m_GameModel.day1_HeardRecord3 = true;
+            m_RecordPen.SendEvent(Const.E_DayEndCheck, m_RecordPen.m_GameModel.DayEndCheck());
+        }
     }
 
     public void PauseRecord()

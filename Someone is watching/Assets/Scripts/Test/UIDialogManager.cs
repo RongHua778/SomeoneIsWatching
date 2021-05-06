@@ -16,6 +16,7 @@ public class UIDialogManager : View
     public Text NameText;
     public Text DialogueText;
 
+
     public Animator animator;
 
     private Dialogue currentDialog;
@@ -44,6 +45,10 @@ public class UIDialogManager : View
 
     public void StartDialogue(Dialogue dialogue)
     {
+        if (dialogue.ID == 0)
+        {
+            SkipBtn.gameObject.SetActive(true);
+        }
         dialogSystem.SetActive(true);
         animator.SetBool("IsOpen", true);
         currentDialog = dialogue;
