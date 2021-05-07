@@ -14,6 +14,8 @@ public class Displayer
     public VideoPlayer video;
     public RawImage videoBG;
     public Image image;
+
+
    
 }
 
@@ -104,6 +106,12 @@ public class VideoManager : Singleton<VideoManager>
     {
         
         Displayer displayer = m_Displayers[seg.ID];
+        //RenderTexture.active = displayer.video.targetTexture;
+        //GL.Clear(true, true, Color.black);
+        //RenderTexture.active = null;
+
+        //displayer.video.targetTexture.DiscardContents();
+        //Graphics.Blit(firstFrameTexture, displayer.video.targetTexture);
 
         if (displayer.video.GetComponent<MonitorGrid>() != null)
         {

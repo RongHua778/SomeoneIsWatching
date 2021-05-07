@@ -8,6 +8,7 @@ using UnityEngine.Video;
 
 public class UIEndScene : View
 {
+    [SerializeField] CreditPanel creditPanel = default;
     [SerializeField]
     TextHandler EndText = default;
     GameModel m_GameModel;
@@ -33,6 +34,7 @@ public class UIEndScene : View
     void SetEndText(string text)
     {
         bool lose = true;
+        bool demo = false;
         string endText = "";
         switch (text)
         {
@@ -58,6 +60,7 @@ public class UIEndScene : View
             case "Day3":
                 endText = "day3";
                 lose = false;
+                demo = true;
                 SetEndImg("Pieces");
                 break;
             case "Day4":
@@ -78,7 +81,11 @@ public class UIEndScene : View
                 break;
 
         }
-        if (!lose)
+        if (demo)
+        {
+            MainBtnTxt.SetText("return");
+        }
+        else if (!lose)
         {
             MainBtnTxt.SetText("next");
             //SetItemsGet(false);
@@ -132,7 +139,25 @@ public class UIEndScene : View
         GridUI.OnLeftClick = null;
         EmailGrid.OnLeftClick = null;
         //Game.Instance.LoadScene(2);
-        Game.Instance.LoadScene(2);
+        if (m_GameModel.Day == 4)
+        {
+            PlayCredit();
+        }
+        else
+        {
+            Game.Instance.LoadScene(2);
+        }
+    }
+
+    public void SkipCredit()
+    {
+        Game.Instance.LoadScene(1);
+    }
+
+    public void PlayCredit()
+    {
+        creditPanel.gameObject.SetActive(true);
+        creditPanel.OpenPanel();
     }
 
     public override void RegisterEvents()

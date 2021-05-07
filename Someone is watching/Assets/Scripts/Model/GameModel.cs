@@ -100,7 +100,7 @@ public class GameModel : Model
             case 3:
                 GameOverState = "Day4";
                 Day = 4;
-                Game.Instance.LoadScene(4);
+                Game.Instance.LoadScene(3);
                 break;
         }
     }
@@ -191,10 +191,10 @@ public class GameModel : Model
                 break;
 
             case 3:
-                if (overAllState != "Day2Period4")
-                    handleSuccess = false;
-                else
-                {
+                //if (overAllState != "Day2Period4")
+                //    handleSuccess = false;
+                //else
+                //{
                     switch (targetName)
                     {
                         case "EnergyRepair1":
@@ -211,7 +211,7 @@ public class GameModel : Model
 
 
                     }
-                }
+                //}
                 break;
 
             case 5:

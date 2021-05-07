@@ -107,6 +107,7 @@ public class UIDesktop : View
         m_Monitor.transform.SetSiblingIndex(0);
         m_Monitor.m_UIInteractive.CheckAll();
         Sound.Instance.PlayEffect("SoundEffect/Sound_ComputerOpen");
+        VideoManager.Instance.CloseAll();
     }
 
     public void HideEmail()

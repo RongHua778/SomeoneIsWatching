@@ -15,7 +15,6 @@ public class UIInteractive : MonoBehaviour
     public TextHandler Message_TextHandler;
     public Text Message_Text;
 
-    Dictionary<string, Transform> m_InterDic = new Dictionary<string, Transform>();
 
     public UIRecordPen recordPenPanel;
     public DigitClock digitClockPanel;
@@ -31,13 +30,6 @@ public class UIInteractive : MonoBehaviour
     }
 
 
-    public void CloseAll()
-    {
-        foreach (string item in m_InterDic.Keys)
-        {
-            m_InterDic[item].gameObject.SetActive(false);
-        }
-    }
 
 
     void ShowItemPanel()

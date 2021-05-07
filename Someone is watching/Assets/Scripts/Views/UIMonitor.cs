@@ -8,16 +8,12 @@ public delegate void CallBackFunc();
 public class UIMonitor : View
 {
 
-    //public delegate void CallBackFunc();
-
     public GameModel m_GameModel;
     public UIInteractive m_UIInteractive;
     public override string Name
     {
         get { return Const.V_Monitor; }
     }
-
-    //public GameObject m_Monitor;
 
     public MonitorGrid[] m_Monitors;
 
@@ -68,8 +64,6 @@ public class UIMonitor : View
         AttentionEvents.Add(Const.E_ShowMessage);
 
         AttentionEvents.Add(Const.E_Repair);
-
-        AttentionEvents.Add(Const.E_ChoiceClick);
 
     }
 
@@ -122,14 +116,6 @@ public class UIMonitor : View
                 m_Monitors[id].ActiveIt(true);
                 m_Monitors[id].CanRepair = false;
                 break;
-
-            //case Const.E_ChoiceClick:
-            //    int num = (int)obj;
-            //    if (num == 16)
-            //    {
-            //        Day2Period4();//制药电话播放完毕
-            //    }
-            //    break;
         }
     }
 

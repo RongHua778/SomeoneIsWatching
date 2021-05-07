@@ -103,7 +103,7 @@ public class EmailManager : View
 
     public void PassWordConfirm()
     {
-        if (acount.text == "12345" && password.text == "23456")
+        if (acount.text == "moliang1990@hotmail.com" && password.text == "1221vice@2012")
         {
             normalTR.SetActive(true);
             passwordTR.SetActive(false);
@@ -117,10 +117,5 @@ public class EmailManager : View
         }
     }
 
-
-    private void Update()
-    {
-
-    }
 
 }

@@ -13,6 +13,7 @@ public class UIFunctionManager : View
 
     public UIRealworld m_RealWorld;
     public UIDesktop m_Desktop;
+    public UIPhone m_UIPhone;
 
     [SerializeField] GameObject NextDayBtnObj = default;
     private void Start()
@@ -53,13 +54,23 @@ public class UIFunctionManager : View
             case 3:
                 ShowPanel(1);
                 VideoManager.Instance.ShowImage(10, "Day2_Desk", "Image/CG/Scene_Computer", false);
+                SendEvent(Const.E_UnlockRecord, true);
+                SendEvent(Const.E_AddRecord, 1);
+                SendEvent(Const.E_AddPiece, 2);
+                SendEvent(Const.E_AddPiece, 6);
+                SendEvent(Const.E_AddPiece, 4);
+
                 break;
 
             case 4:
                 ShowPanel(1);
                 VideoManager.Instance.ShowImage(10, "Day1_Desk", "Image/CG/Scene_Computer", false);
-                SendEvent(Const.E_AddRecord, 0);
-                SendEvent(Const.E_AddRecord, 4);//新增录音片段
+                //SendEvent(Const.E_AddRecord, 0);
+                //SendEvent(Const.E_AddRecord, 4);//新增录音片段
+                SendEvent(Const.E_AddPiece, 2);
+                SendEvent(Const.E_AddPiece, 4);
+                SendEvent(Const.E_AddPiece, 6);
+                SendEvent(Const.E_AddPiece, 8);
                 SendEvent(Const.E_SendEmail, 4);
                 SendEvent(Const.E_SendEmail, 5);
 
@@ -84,6 +95,7 @@ public class UIFunctionManager : View
             case 1:
                 m_Desktop.transform.SetAsFirstSibling();
                 m_Desktop.Show();
+                SendEvent(Const.E_DayEndCheck,m_GameModel.DayEndCheck());
                 break;
         }
 
@@ -95,6 +107,8 @@ public class UIFunctionManager : View
     {
         AttentionEvents.Add(Const.E_ShowPanel);
         AttentionEvents.Add(Const.E_DayEndCheck);
+
+        AttentionEvents.Add(Const.E_DialogEnd);
     }
 
     public override void HandleEvent(string eventName, object obj)
@@ -109,6 +123,9 @@ public class UIFunctionManager : View
             case Const.E_DayEndCheck:
                 bool check = (bool)obj;
                 DayEndCheck(check);
+                break;
+            case Const.E_DialogEnd:
+                m_UIPhone.ShowCloseBtn(true);
                 break;
         }
     }

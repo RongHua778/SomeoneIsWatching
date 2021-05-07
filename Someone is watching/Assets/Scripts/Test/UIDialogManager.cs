@@ -98,6 +98,14 @@ public class UIDialogManager : View
             choice2.SetText(detail.choice2);
             choice2.name = detail.targetID2.ToString();
         }
+
+        switch (detail.key)//为了关闭phone call按钮
+        {
+            case "reporter7":
+            case "bmf4":
+                SendEvent(Const.E_DialogEnd);
+                break;
+        }
     }
 
     public void ChoiceClick(Text text)
@@ -106,8 +114,6 @@ public class UIDialogManager : View
         DialogueTrigger trigger = TriggerDIC[id];
         trigger.TriggerDialogue();
         Contiune.gameObject.SetActive(true);
-
-        SendEvent(Const.E_ChoiceClick, id);
 
         animator.SetBool("ShowChoice", false);
     }
@@ -125,11 +131,15 @@ public class UIDialogManager : View
                 Segment seg = new Segment(10, "Video/Animation/Opening_3", "Opening3", false, false, null, Day1AnimationEnd);
                 //Segment seg2 = new Segment(10, "Video/Animation/Opening_4", "Opening3", false, false);
                 VideoManager.Instance.PlaySeq(new List<Segment> { seg });
+                SkipBtn.gameObject.SetActive(false);
                 break;
 
             case 24:
                 m_GameModel.GameOverState = "DeadManNoSay";
                 Game.Instance.LoadScene(3);
+                break;
+            case 23:
+                SendEvent(Const.E_DialogEnd);
                 break;
         }
         dialogSystem.SetActive(false);

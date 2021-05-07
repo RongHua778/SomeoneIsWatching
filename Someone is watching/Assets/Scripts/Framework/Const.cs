@@ -46,7 +46,7 @@ public static class Const
     public const string E_ShowMessage = "E_ShowMessage";
     public const string E_DayEndCheck = "E_DayEndCheck";
     public const string E_OpenMonitor = "E_OpenMonitor";
-    public const string E_ChoiceClick = "E_ChoiceClick";
+    public const string E_DialogEnd = "E_ChoiceClick";
 
     public const string E_AddRecord = "E_AddRecord";
 
