@@ -30,7 +30,7 @@ public class RecordGrid : MonoBehaviour,IPointerClickHandler
         }
     }
 
-    internal void UpdateRecord(Record rec)
+    public void UpdateRecord(Record rec)
     {
         Init();
         record = rec;

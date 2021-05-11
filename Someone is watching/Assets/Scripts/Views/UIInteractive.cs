@@ -18,7 +18,6 @@ public class UIInteractive : MonoBehaviour
 
     public UIRecordPen recordPenPanel;
     public DigitClock digitClockPanel;
-    //public PieceInfo pieceInfo;
     public MultiPanel multiPanel;
 
 
@@ -54,17 +53,6 @@ public class UIInteractive : MonoBehaviour
     public void CheckAll()
     {
         D2Check();
-        D2CheckEnd();
-    }
-
-    void D2CheckEnd()
-    {
-        if (m_Monitor.m_GameModel.day2_Camera2Repair && m_Monitor.m_GameModel.day2_Camera4Repair && m_Monitor.m_GameModel.day2_WaterPungRepair)
-        {
-            m_Monitor.m_GameModel.GameOverState = "Day3";
-            m_Monitor.m_GameModel.Day = 3;
-            Game.Instance.LoadScene(3);
-        }
     }
 
     //直接把手机亮起来
@@ -112,14 +100,12 @@ public class UIInteractive : MonoBehaviour
                 multiPanel.State = "Medicine";
                 multiPanel.gameObject.SetActive(true);
                 VideoManager.Instance.CloseAll();
-                //CloseAll();
                 break;
 
             case 4:
                 multiPanel.UpdatePanel(1);
                 multiPanel.State = "MedicineBook";
                 multiPanel.gameObject.SetActive(true);
-                //CloseAll();
                 VideoManager.Instance.CloseAll();
 
                 break;
@@ -151,8 +137,6 @@ public class UIInteractive : MonoBehaviour
                 m_Monitor.m_GameModel.GameOverState = "CloseCamera";
                 Game.Instance.LoadScene(3);
                 VideoManager.Instance.CloseAll();
-
-                //CloseAll();
                 break;
 
             case "D11cDesk":
@@ -161,7 +145,6 @@ public class UIInteractive : MonoBehaviour
                 {
                     if (!m_Monitor.m_GameModel.day1_MemoryPiece1)
                     {
-                        //CloseAll();
                         VideoManager.Instance.CloseAll();
 
                         VideoManager.Instance.ShowImage(9, "Desk", "Image/Camera1/Day1.1d(抽屉)", false);
@@ -169,11 +152,7 @@ public class UIInteractive : MonoBehaviour
                     }
                     else
                     {
-                        //CloseAll();
                         VideoManager.Instance.CloseAll();
-
-                        //ShowItemPanel("Image/Camera1/Day1.1d(空抽屉)",0);
-
                         VideoManager.Instance.ShowImage(9, null, "Image/Camera1/Day1.1d(空抽屉)", false);
                         ShowItemPanel();
                     }
@@ -182,26 +161,18 @@ public class UIInteractive : MonoBehaviour
                 break;
 
             case "D11cPiece1":
-                //CloseAll();
                 VideoManager.Instance.CloseAll();
-
                 m_Monitor.SendEvent(Const.E_AddPiece, 2);
                 m_Monitor.m_GameModel.day1_MemoryPiece1 = true;
-                //ShowItemPanel("Image/Camera1/Day1.1d(空抽屉)",0);
                 VideoManager.Instance.ShowImage(9, null, "Image/Camera1/Day1.1d(空抽屉)", false);
                 ShowItemPanel();
-
-                
                 StartCoroutine(ShowMessage("tips8"));
-                //Debug.Log("GetPiece1");
                 break;
 
             case "D16aCalender":
-                //ShowItemPanel("Image/Camera6/日历特写",5);
+
                 VideoManager.Instance.ShowImage(9, null, "Image/Camera6/日历特写", false);
                 ShowItemPanel();
-                //VideoManager.Instance.ShowImage(9, null, "Image/Camera6/日历特写");
-                //CloseAll();
                 VideoManager.Instance.CloseAll();
 
                 ShowSubtitle("calendar");
@@ -210,7 +181,6 @@ public class UIInteractive : MonoBehaviour
             case "D16aDigitClock":
                 VideoManager.Instance.ShowImage(5, "D1-6a_k", "Image/Camera6/D1.6a_k", false);
                 m_Monitor.SendEvent(Const.E_GetItem, 1);
-                //CloseAll();
                 break;
 
             case "D15aLadyBag":
@@ -243,6 +213,7 @@ public class UIInteractive : MonoBehaviour
                 VideoManager.Instance.CloseAll();
                 VideoManager.Instance.ShowImage(9, null, "Image/Camera3/镜头三day1-3b（简体)", false);
                 ShowItemPanel();
+                ShowSubtitle("toilettip");
                 break;
 
             case "D17aRubishCan":
@@ -272,46 +243,21 @@ public class UIInteractive : MonoBehaviour
                 break;
 
             case "D11gMedicineHistory":
-                //if(m_Monitor.m_GameModel.overAllState=="Day1Period5")//女主躺下后才可以拿病历本
-                //{
-                //    VideoManager.Instance.ShowImage(9, null, "Image/Camera1/病历本",false);
-                //    ShowItemPanel();
-                //}
-                //ShowItemPanel("Image/Camera1/病历本",0);
+
                 break;
 
             //day2
             case "D2Desk":
 
-                //ShowItemPanel("Image/Camera1/D2卧室桌子",0);
                 VideoManager.Instance.ShowImage(9, "D2Desk", "Image/Camera1/D2卧室桌子", false);
                 ShowItemPanel();
-                //FindAndSet("D2Desk");
                 break;
 
             case "D2MusicBox":
-                //VideoManager.Instance.FindAndSet(9, "MusicBox");
                 Sound.Instance.PlayEffect("SoundEffect/Music_MusicBox");
                 Segment seg = new Segment(9, "Video/Ending/PlayMusicBox", "", false, false,null,PlayMusicBoxEnd);
                 VideoManager.Instance.PlayVideoClip(seg);
                 ShowItemPanel();
-                break;
-
-            //case "WatchMusicBox":
-            //    ShowSubtitle("musicbox");
-            //    VideoManager.Instance.FindAndSet(9, "D2Desk");
-            //    //FindAndSet("D2Desk");
-            //    break;
-
-            //case "PlayMusicBox":
-            //    //HideItemPanel();
-            //    //Segment seg0 = new Segment(9, "Video/Camera1/PlayMusicBox", "D2-1g", false, false ,null,PlayMusicBoxEnd);
-            //    //VideoManager.Instance.PlayVideoClip(seg0);
-            //    PlayMusicBoxEnd();
-            //    //m_Monitor.PlayClip(seg0);
-            //    //CloseAll();
-            //    VideoManager.Instance.CloseAll();
-
                 break;
 
             case "D2MedicineBook":
@@ -338,6 +284,7 @@ public class UIInteractive : MonoBehaviour
                 VideoManager.Instance.ShowImage(9, null, "Image/Camera1/D2-1g_柜子开_没电池", false);
                 ShowItemPanel();
                 m_Monitor.m_GameModel.day2_GetBattery1 = true;
+                CheckAll();
                 StartCoroutine(ShowMessage("tips10"));
                 //CloseAll();
                 VideoManager.Instance.CloseAll();
@@ -371,6 +318,7 @@ public class UIInteractive : MonoBehaviour
             case "GetBattery2"://WashRoomBattery
                 m_Monitor.SendEvent(Const.E_GetItem, 3);
                 m_Monitor.m_GameModel.day2_GetBattery2 = true;
+                CheckAll();
                 //ShowItemPanel("Image/Camera3/D2.3c_空",2);
                 VideoManager.Instance.ShowImage(9, null, "Image/Camera3/D2.3c_空", false);
                 ShowItemPanel();
@@ -431,6 +379,7 @@ public class UIInteractive : MonoBehaviour
                 //ShowItemPanel("Image/Camera6/工具箱_空",5);
                 m_Monitor.SendEvent(Const.E_GetItem, 5);
                 m_Monitor.m_GameModel.day2_Tool = true;
+                CheckAll();
                 StartCoroutine(ShowMessage("tips11"));
                 //CloseAll();
                 VideoManager.Instance.CloseAll();
@@ -441,17 +390,14 @@ public class UIInteractive : MonoBehaviour
             case "D2Tips":
                 VideoManager.Instance.ShowImage(9, null, "Image/Camera7/d2.7c字条", false);
                 ShowItemPanel();
-                // ShowItemPanel("Image/Camera7/d2.7c字条",6);
+                ShowSubtitle("kitchentip");
                 break;
 
             case "D2Shelf":
-                //Segment seg1 = new Segment(6, "Video/Camera7/D2.7c", "D2-7c", false,false);
-                //m_Monitor.PlayClip(seg1);
                 VideoManager.Instance.ShowImage(9, "D2-7c", "Image/Camera7/D2.7c", false);
                 ShowItemPanel();
                 Sound.Instance.PlayEffect("SoundEffect/Sound_OpenCabinet");
-                //ShowItemPanel("Image/Camera7/D2.7c",6);
-                //FindAndSet("D2-7c");
+
                 break;
 
             case "D2ShelfLeft":
@@ -475,6 +421,7 @@ public class UIInteractive : MonoBehaviour
             case "D2ShelfRight":
                 VideoManager.Instance.ShowImage(9, "ShelfRight", "Image/Camera7/d2.7c药物", false);
                 ShowItemPanel();
+                ShowSubtitle("manymedicine");
                 //ShowItemPanel("Image/Camera7/d2.7c药物",6);
                 //FindAndSet("ShelfRight");
                 break;

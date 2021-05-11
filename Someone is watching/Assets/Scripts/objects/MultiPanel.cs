@@ -16,8 +16,8 @@ public class MultiPanel : MonoBehaviour
 
     [SerializeField] GameObject Translation ,left,right= default;
 
-    int id = 0;
-    private int currentID;
+    int TypeID = 1;
+    private int picIndex;
     // Start is called before the first frame update
 
     enum category
@@ -37,23 +37,23 @@ public class MultiPanel : MonoBehaviour
     public void UpdatePanel(int id)
     {
         InitDic();
-        this.id = id;
-        currentID = 0;
+        this.TypeID = id;
+        picIndex = 0;
         Pictures = PicDics[id];
         maxNum = Pictures.Length - 1;
-        m_Image.sprite = Pictures[currentID];
+        m_Image.sprite = Pictures[picIndex];
         left.SetActive(false);
         buttonHelper();
     }
 
     private void buttonHelper()
     {
-        if (currentID <= 0)
+        if (picIndex <= 0)
         {
             left.SetActive(false);
             right.SetActive(true);
         }
-        else if (currentID >= maxNum)
+        else if (picIndex >= maxNum)
         {
             left.SetActive(true);
             right.SetActive(false);
@@ -63,7 +63,7 @@ public class MultiPanel : MonoBehaviour
             left.SetActive(true);
             right.SetActive(true);
         }
-        if (currentID == 1 && id == 1&& StaticData.language == "ch")
+        if (picIndex == 1 && TypeID == 1&& StaticData.language == "en")
         {
             Translation.SetActive(true);
         }
@@ -74,10 +74,10 @@ public class MultiPanel : MonoBehaviour
     }
     public void LeftClick()
     {
-        currentID--;
+        picIndex--;
         buttonHelper();
-        m_Image.sprite = Pictures[id];
-        if (id == 1)
+        m_Image.sprite = Pictures[picIndex];
+        if (TypeID == 1)
         {
             Sound.Instance.PlayEffect("SoundEffect/Sound_Flip");
         }
@@ -85,10 +85,10 @@ public class MultiPanel : MonoBehaviour
 
     public void RightClick()
     {
-        currentID++;
+        picIndex++;
         buttonHelper();
-        m_Image.sprite = Pictures[currentID];
-        if (id == 1)
+        m_Image.sprite = Pictures[picIndex];
+        if (TypeID == 1)
         {
             Sound.Instance.PlayEffect("SoundEffect/Sound_Flip");
         }

@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -441,16 +441,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a5cb2a25994c1d4bb7a6ba37c9b62ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UIMonitor: {fileID: 0}
   IsActive: 1
+  m_UIMonitor: {fileID: 0}
+  State: 
   Protagonist: 0
   isAugmented: 0
-  m_VideoPlayer: {fileID: 0}
-  Ending: 0
-  ID: 0
-  State: 
-  CheckState: 0
-  CheckingState: 
+  ImageCanRepair: {fileID: 0}
 --- !u!1 &8364182263561876803
 GameObject:
   m_ObjectHideFlags: 0

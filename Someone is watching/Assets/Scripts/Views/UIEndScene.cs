@@ -60,11 +60,11 @@ public class UIEndScene : View
             case "Day3":
                 endText = "day3";
                 lose = false;
-                demo = true;
                 SetEndImg("Pieces");
                 break;
             case "Day4":
                 lose = false;
+                demo = true;
                 endText = "day4";
                 SetEndImg("Pieces");
                 break;
@@ -134,11 +134,6 @@ public class UIEndScene : View
     {
         m_GameModel.Reset();
 
-        GridUI.OnLeftBeginDrag = null;
-        GridUI.OnLeftEndDrag = null;
-        GridUI.OnLeftClick = null;
-        EmailGrid.OnLeftClick = null;
-        //Game.Instance.LoadScene(2);
         if (m_GameModel.Day == 4)
         {
             PlayCredit();

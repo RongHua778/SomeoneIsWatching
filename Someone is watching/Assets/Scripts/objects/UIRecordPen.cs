@@ -37,11 +37,9 @@ public class UIRecordPen : View
 
     private void Start()
     {
-        //AddRecordFile(Records[0]);
-        AddRecordFile(Records[1]);
-        AddRecordFile(Records[2]);
-        AddRecordFile(Records[3]);
-        //AddRecordFile(Records[4]);
+        //AddRecordFile(Records[1]);
+        //AddRecordFile(Records[2]);
+        //AddRecordFile(Records[3]);
     }
 
     public void AddRecordFile(Record rec)

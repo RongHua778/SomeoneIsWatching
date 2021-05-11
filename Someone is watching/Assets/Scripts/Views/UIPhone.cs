@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +21,12 @@ public class UIPhone : MonoBehaviour
     public void Hide()
     {
         this.gameObject.SetActive(false);
+    }
+
+    public void ClearNums()
+    {
+        NumArea.text = "";
+        nums.Clear();
     }
 
     public void ClickNum(int num)
@@ -69,7 +76,10 @@ public class UIPhone : MonoBehaviour
                 {
                     m_Monitor.m_GameModel.Calling = true;
                     m_Monitor.SendEvent(Const.E_TriggerDialogue,3);
-                    NumArea.text = "通话中";
+                    if (StaticData.language == "ch")
+                        NumArea.text = "通话中";
+                    else if (StaticData.language == "en")
+                        NumArea.text = "Calling";
                     Debug.Log("Success Dial");
                     ShowCloseBtn(false);
                 }
@@ -84,8 +94,10 @@ public class UIPhone : MonoBehaviour
                 {
                     m_Monitor.m_GameModel.Calling = true;
                     m_Monitor.SendEvent(Const.E_TriggerDialogue, 9);
-                    NumArea.text = "通话中";
-                    m_Monitor.m_GameModel.day3_ReporterWang = true;
+                    if (StaticData.language == "ch")
+                        NumArea.text = "通话中";
+                    else if (StaticData.language == "en")
+                        NumArea.text = "Calling";
                     Debug.Log("Success Dial");
                     ShowCloseBtn(false);
                 }
@@ -93,6 +105,9 @@ public class UIPhone : MonoBehaviour
                 {
                     m_Monitor.SendEvent(Const.E_ShowMessage, "tips19");
                 }
+                break;
+            default:
+                m_Monitor.SendEvent(Const.E_ShowMessage, "tips19");
                 break;
         }
 

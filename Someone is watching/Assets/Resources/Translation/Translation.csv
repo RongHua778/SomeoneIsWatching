@@ -3,13 +3,16 @@ start,新游戏,New Game,这里写备注，不可以用英文逗号哦
 language,语言：简体中文,Language: English,切换语言按钮
 back,返回,Back
 setting,设置,Setting,
-save,保存并退出,Save & Quit，
+save,保存并退出,Save & Quit,
 continue,继续游戏,Continue,
+nextday,下一天,Next Day,
 quit,退出,Quit,
 load,读取,Load,
 credit,制作名单,Credit,
 restart,重新开始,Restart,
 return,返回主菜单,Return to Main Menu,
+mail,购买任何你想要的东西,Purchase any item you want 000-101-777,
+manymedicine,大量的药瓶,Large quantities of medicines,
 next,下一天,Next Day,
 ending1,结局1：死人不会说话,Ending1:Dead men tell no tales,
 ending2,被发现了,Get caught,
@@ -17,7 +20,7 @@ ending3,错误，链接中断,Fail to connect,
 ending4,结局2：音乐吸引了注意,Ending2:Alarmed by the music,
 day2,成功通过第一天，正在链接第二天,Successfully passed Day 1， linking Day 2,
 day3,成功通过第二天，正在链接第三天,Successfully passed Day 2， linking Day 3,
-day4,成功通过第三天, Successfully passed Day 3,
+day4,成功通过第三天\n感谢您参与游戏DEMO测试。, Successfully passed Day 3\nThank you for helping us with the beta testing of the game.,
 day5,成功通过第四天，正在链接第五天,Successfully passed Day 4， linking Day 5,
 day6,成功通过第五天，正在链接第六天,Successfully passed Day 5， linking Day 6,
 day7,成功通过第六天，正在链接第七天,Successfully passed Day 6， linking Day 7,
@@ -59,10 +62,12 @@ reporter8,哦？你想说什么，我拿笔过来，你等会！喂喂，你人�
 reporter_Choice3,想要案件的深入信息,Request for in-depth information,
 reporter_Choice4,想要提供相关线索,Provide a clue,
 4,4,4,
-calendar,一本日历，某个日期被圈起来了,A calendar where a certain date is circled.,
+calendar,一本日历，某个日期被圈起来了,A calendar where a certain date is circled（22th August Doctor Li）.,
 digitclock,一个电子时钟，似乎可以修改时间(请谨慎修改时间，可能发生未知错误),An electronic clock that can modify the time. （Please adjust the time carefully， unknown errors may occur）,
 ladybag,一个女士用的手提包，可以放点什么进去么,A handbag for women，might be able to put something in.,
 musicbox,这是一个精致的八音盒，看起来是一份礼物。,It is a delicate octavo box that looks like a gift.,
+toilettip,3pm-5pm，预约,3pm-5pm Appointment,
+kitchentip,晚上十点睡觉，恢复正常作息, Go to bed at 10pm to get regular rest
 5,5,5,
 tips1,这一天还有未探索完的记忆,There are still unexplored memories from this day.,
 tips2,录音笔被放入了背包,The recording pen was put into the backpack.,
@@ -83,21 +88,22 @@ tips16,她还在这里，无法探索,Can not explore while she still here,
 tips17,解锁了录音系统,Unlock the record system,
 tips18,获得了药品,Get a medicine,
 tips19,拨打号码错误,Dial wrong number,
+tips20,最好在晚上修复摄像头, It is best to repair the camera at night,
 guide01,你首先要找的，我们称之为记忆碎片。它是碎掉的残片，唯有拼凑重组起来，才能还原出当日的真相。,The first thing you need to find is what we call a "memory piece". It is the shattered fragments that can only be pieced together and reconstructed to reveal the truth of those days.,
-guide02,为什么不从最简单的做起，看看被人丢弃之物？有时候，珍贵的东西，也会被丢进垃圾桶里。,Why not start with the simplest and look at what gets dumped? Sometimes precious things， also get thrown in the trash.，
-guide03,时间的观念在这个世界极为重要。啊，我似乎说多了。,The idea of time is extremely important in this world.Ah， I seem to have spoken too much.	，
-guide04,很好。你第一天的任务成功了。去听听看你都录到了什么。,Well done. You've succeeded in your first day's mission.Go and check what you've recorded.，
-guide05,那么，晚安。,Good night.，
-guide06,你还真的是合格的偷窥狂。送你一个直白的提示吧，恢复电量的相机将可以正常工作。今天，你的幸运数字是2和4。,You really are a completely peeping Tom.Let me drop you a straightforward hint， a camera that has regained its charge will work fine.Your lucky numbers are 2 and 4 Today.，
-guide07,不如试试看触碰可以碰倒的物件？,Why not try touching an object that can be knocked over?	，
-guide08,哦？门铃似乎响了，去看看有没有客人…,Huh? The doorbell seems to have rung, go and see if there are any visitors...，
-guide09,晚安。虽然于你而言可能是个不眠之夜，但是祝你好梦。,Good night.It may be a sleepless night for you, but good dreams.，
-guide10,书本是重要的记忆载体，或许能找到你需要的。,Books are important memory carriers. You may be able to find what you need.，
-guide11,当你在窥视过去的时候，过去也在窥视着你。,While you are looking into the past， the past is also looking into you. ，
+guide02,为什么不从最简单的做起，看看被人丢弃之物？有时候，珍贵的东西，也会被丢进垃圾桶里。,Why not start with the simplest and look at what gets dumped? Sometimes precious things， also get thrown in the trash.,
+guide03,时间的观念在这个世界极为重要。啊，我似乎说多了。,The idea of time is extremely important in this world.Ah， I seem to have spoken too much.	,
+guide04,很好。你第一天的任务成功了。去听听看你都录到了什么。,Well done. You've succeeded in your first day's mission.Go and check what you've recorded.,
+guide05,那么，晚安。,Good night.,
+guide06,你还真的是合格的偷窥狂。送你一个直白的提示吧，恢复电量的相机将可以正常工作。今天，你的幸运数字是2和4。,You really are a completely peeping Tom.Let me drop you a straightforward hint， a camera that has regained its charge will work fine.Your lucky numbers are 2 and 4 Today.,
+guide07,不如试试看触碰可以碰倒的物件？,Why not try touching an object that can be knocked over?	,
+guide08,哦？门铃似乎响了，去看看有没有客人…,Huh? The doorbell seems to have rung， go and see if there are any visitors...,
+guide09,晚安。虽然于你而言可能是个不眠之夜，但是祝你好梦。,Good night.It may be a sleepless night for you， but good dreams.,
+guide10,书本是重要的记忆载体，或许能找到你需要的。,Books are important memory carriers. You may be able to find what you need.,
+guide11,当你在窥视过去的时候，过去也在窥视着你。,While you are looking into the past， the past is also looking into you. ,
 6,6,6,
 record1,匿名者A：是的，我现在已经好很多了，明天就可以回来复职。\n匿名者B：这样，你别急，我和你说个事。你可以好好休息一段时间，我们这边的人手暂时是充足的，什么时候身体好转了，再回来。\n匿名者A：可是，难道真相就不该被公布于众吗？\n匿名者B：唉，你也清楚的。当年的那些事，早应该让它过去，追究得一清二楚总归不好。,Anonymous A: Yes， I'm getting much better now. I can come back tomorrow. \nAnonymous B: Look， here's the deal. Take it easy， let me tell you something. You can take a good rest for a while， our department is fully staffed for the time being. When you are fully recovered， you can come back again.\nAnonymous A: But shouldn't the truth be revealed to the public?\nAnonymous B: You are well aware of that. Those things back then should have been let go. It's always bad to pursue all the details.,
 record2,匿名者A：已经……已经有一段时间了。原本还没有那么严重，这一切都是我的错。\n匿名者B：不用过度责怪自己，你失眠的症状好一些了吗？\n匿名者A：我，我没办法。一想到那些事情，我就没有办法入睡。他们就是一群疯子。匿名者B：你可以和我说一下，你究竟遇到什么了吗？\n匿名者A：我不能说。\n匿名者B：这样吧，我给你开一种新药，你试一周，看下效果。对了，服药期间禁止驾驶车辆，下星期回来复诊。,Anonymous A: It's been a while. It wasn't that bad before ...... It's all my fault.\nAnonymous B: Don't blame yourself too much. Are your insomnia symptoms getting better?\nAnonymous A: I ...... I can't help ...... When I think about those things， I can't sleep at all. They're a bunch of crazy bastards.\nAnonymous B: Can you tell me what happened to you?\nAnonymous A: (sigh)\nAnonymous B: I'll tell you what. I'm going to give you a new medicine， and you can try it for a week and see how it works. You are not allowed to drive a car while taking it， and you will come back next week for a follow-up.,
-record3,匿名者（男性）：2012年，第31次药品试验记录。药品-0018仍有问题，白鼠受验体出现不同程度的体征混乱，即使治愈，遗传基因也会出现异变，子世代出现畸形、发育不良等问题。建议，应退回实验室开发阶段，重新进行化合物优化，中断临床试验一期。,Anonymous (male): The 31st drug trial record in 2012. There are still problems with drug-0018， and the white rats tested show various degrees of confusion in their signs.Even if cured， genetic mutation occurs. The offspring generation showed deformities and dysplasia. It is recommended that the drug should be returned to the laboratory development stage， compound optimization should be re-executed and clinical trial phase I should be interrupted.,
+record3,匿名者（男性）：2012年，第31次药品试验记录。药品-0018仍有问题，白鼠受验体出现不同程度的体征混乱，即使治愈，遗传基因也会出现异变，子世代出现畸形、发育不良等问题。建议，应退回实验室开发阶段，重新进行化合物优化，中断临床试验一期。,Anonymous (male): The 31st drug trial record in 2012. There are still problems with drug-0018， and the white rats tested show various degrees of confusion in their signs.Even if cured， genetic mutation occurs. The offspring generation showed deformities and dysplasia. It is recommended that the drug should be returned to the laboratory development stage， compound optimization should be re-executed， and clinical trial phase I should be interrupted.,
 record4,匿名者A：我听老一辈说，人活到一定年龄最怕的就是死。一旦得了什么病，什么办法都没有。我还这么年轻，这种病也还没有治疗的手段，就算有风险也想试试。\n匿名者B：那您事先清楚药物的风险性吗？\n匿名者A：他们的协议说是绝对安全的，我开始也看见了希望。但是后来，大约一个月后，发生了极为恐怖的事情……,Anonymous A: I heard the older generation say that the most fearful thing for people is death. Once the disease is acquired， there is nothing to do. I am still such a young person and there is no treatment for this disease yet， so I want to try it even if it is risky.\nAnonymous B: Did you know the risks of the drug beforehand?\nAnonymous A: Their protocol said it was absolutely safe， and I saw hope at first. But then， about a month later， something extremely horrible happened ......,
 piece01,记忆碎片#1,MemoryPiece#1,
 piece02,记忆碎片#2,MemoryPiece#2,
@@ -109,7 +115,7 @@ piece07,记忆碎片#7,MemoryPiece#7,
 piece08,记忆碎片#8,MemoryPiece#8,
 piece01_info,医生的话让我很难过。被我牵连的那些患者的脸，那些无辜的死者，一直在我眼前回闪。我哪里也不想去，打车回家已经是晚上9点了，只想早点休息。,The doctor's words made me sad.\nThe faces of the patients I implicated， the innocent dead， kept flashing before my eyes.\nI didn't want to go anywhere， it was already 9pm when I took a taxi home.  \nI just wanted to get an early night's rest.,
 piece02_info,服药的剂量再次增加了。从一日一次增加到一日三次，每次花花绿绿的药丸倒在我的手心，我都在颤抖。我明显感觉到死神的迫近，尽管死神只是一个虚无缥缈的概念。在死亡之前，我还有事情要做。我还有事情……要做……,The dosage of the medicine was increased again.\nIt increased from once a day to three times a day，and I trembled each time the flowery pills were poured into my palms.\nI could clearly feel the imminence of death， even though it was only a nebulous concept.\nI had things to do before I died.\nI still have things to do ......,
-piece03_info,父亲已经不在我们身边很多年了。他收藏了很多洋酒，但他滴酒不沾。大家都在传，他失意之后开始酗酒。但在我模糊的记忆中，他的神志一直是清醒的。我最后一次见到父亲是个深夜，那天晚上似乎还有工作，他急匆匆地回家拿走了什么东西，眼底布满了血丝。他似乎想开口说什么，最后只是沉默地招手让我过来，摸了摸我的头。,My father has not been with us for many years.He had a large collection of foreign wine， but he didn't drink a drop.\nIt was rumoured that he had started drinking after his disillusionment.\nBut in my vague memory， he was always sober.\nThe last time I saw my father was late at night, when it seemed he had work to do， and he came home in a hurry to take something away，bloodshot under his eyes.\nHe seemed to want to say something， but in the end he just beckoned me over in silence and touched my head.,
+piece03_info,父亲已经不在我们身边很多年了。他收藏了很多洋酒，但他滴酒不沾。大家都在传，他失意之后开始酗酒。但在我模糊的记忆中，他的神志一直是清醒的。我最后一次见到父亲是个深夜，那天晚上似乎还有工作，他急匆匆地回家拿走了什么东西，眼底布满了血丝。他似乎想开口说什么，最后只是沉默地招手让我过来，摸了摸我的头。,My father has not been with us for many years.He had a large collection of foreign wine， but he didn't drink a drop.\nIt was rumoured that he had started drinking after his disillusionment.\nBut in my vague memory， he was always sober.\nThe last time I saw my father was late at night， when it seemed he had work to do， and he came home in a hurry to take something away，bloodshot under his eyes.\nHe seemed to want to say something， but in the end he just beckoned me over in silence and touched my head.,
 piece04_info,医生判断我有严重的药物依赖性，到了不服药就无法安稳入眠的程度。我感觉黑暗中总有一双眼睛，在监视着我。我没有地方可以逃，这里的一切都不是安全的。医生说那是精神过于紧张产生的幻觉，她的眼神就像在看一个被害妄想。我知道那不是幻觉，绝对不是。有谁在看着我。,The doctor judged that I had a severe drug dependency， to the extent that I could not sleep peacefully without taking my medication.\nI feel like there is always a pair of eyes in the dark watching me.\nI had no place to escape to， nothing was safe here.The doctor said it was a hallucination from overwhelming stress and that she looked at me like I was a victim of a delusion.\nI knew it wasn't a hallucination， absolutely not.\nThere was someone watching me.,,
 piece05_info,我不知道那种恶心的感觉是什么。罪恶感？负罪感？真正应该有负罪感的人不是我，而是他们。这一切都是谎言，所有我们认知的事实都是虚构的。不要相信你看见的、听见的任何东西。,I don't know what that sick feeling is.A feeling of guilt? A sense of guilt?\nThe person who should really feel guilty isn't me. It should be them.\nIt's all a lie， all the facts we perceive are fiction.\nDon't believe anything you see or hear. Don't! ,
 7,7,7

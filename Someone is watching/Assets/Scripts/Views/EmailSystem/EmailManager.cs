@@ -53,7 +53,7 @@ public class EmailManager : View
     }
 
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         EmailGrid.OnLeftClick -= EmailGrid_OnLeftClick;
     }

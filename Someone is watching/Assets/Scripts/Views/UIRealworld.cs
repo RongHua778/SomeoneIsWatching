@@ -8,12 +8,8 @@ public class UIRealworld : MonoBehaviour
 {
     public UIFunctionManager m_FunctionManager;
     public UIPhone m_UIPhone;
-
-    private void Awake()
-    {
-        
-    }
-
+    public GameObject SubTitle;
+    public TextHandler subText;
 
     public void InteractiveClick(string code)
     {
@@ -21,6 +17,7 @@ public class UIRealworld : MonoBehaviour
         {
             case "Phone":
                 m_UIPhone.gameObject.SetActive(true);
+                m_UIPhone.ClearNums();
                 break;
 
             case "Screen":
@@ -35,6 +32,8 @@ public class UIRealworld : MonoBehaviour
                 Segment seg2 = new Segment(10, "Video/Animation/OpenMail", "MailOpen", false, false);
                 VideoManager.Instance.PlayVideoClip(seg2);
                 m_FunctionManager.m_GameModel.day2_SeeNum = true;
+                if(StaticData.language=="en")
+                    ShowSubtitle("mail");
                 break;
             case "Box":
                 Segment seg3 = new Segment(10, "Video/Animation/D3_Box", "Day3_Box", false, false);
@@ -43,6 +42,10 @@ public class UIRealworld : MonoBehaviour
             case "OpenBox":
                 Segment seg4 = new Segment(10, "Video/Animation/OpenBox", "BoxOpen", false, false,null,OpenBoxCallback);
                 VideoManager.Instance.PlayVideoClip(seg4);
+                break;
+            case "MailBack":
+                VideoManager.Instance.ShowImage(10, "Day2_Door", "Image/CG/D2_DoorScene", false);
+                HideSubtitle();
                 break;
 
         }
@@ -78,17 +81,29 @@ public class UIRealworld : MonoBehaviour
         switch (m_FunctionManager.m_GameModel.Day)
         {
             case 1:
-                VideoManager.Instance.ShowImage(10, "Day1_Desk", "Image/CG/Scene_Computer", false);
+                VideoManager.Instance.ShowImage(10, "Day1_Desk", "Image/CG/Day1_Desk", false);
                 break;
             case 2:
-                VideoManager.Instance.ShowImage(10, "Day2_Desk", "Image/CG/Scene_Computer", false);
+                VideoManager.Instance.ShowImage(10, "Day2_Desk", "Image/CG/Day2_Desk", false);
                 break;
             case 3:
-                VideoManager.Instance.ShowImage(10, "Day2_Desk", "Image/CG/Scene_Computer", false);
+                VideoManager.Instance.ShowImage(10, "Day2_Desk", "Image/CG/Day2_Desk", false);
                 break;
         }
+        HideSubtitle();
             
 
+    }
+
+    public void ShowSubtitle(string key)
+    {
+        SubTitle.SetActive(true);
+        subText.SetText(key);
+    }
+
+    public void HideSubtitle()
+    {
+        SubTitle.SetActive(false);
     }
 
 

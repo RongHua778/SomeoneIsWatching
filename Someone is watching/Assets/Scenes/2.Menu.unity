@@ -570,7 +570,7 @@ PrefabInstance:
     - target: {fileID: 9113090239785268048, guid: b707711c35b438341b7fe4fbee236ad6,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 65
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 9113090239785268048, guid: b707711c35b438341b7fe4fbee236ad6,
         type: 3}
@@ -1283,7 +1283,7 @@ PrefabInstance:
     - target: {fileID: 9113090239785268048, guid: b707711c35b438341b7fe4fbee236ad6,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -7
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 9113090239785268048, guid: b707711c35b438341b7fe4fbee236ad6,
         type: 3}
@@ -1830,8 +1830,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015259, y: -1516}
-  m_SizeDelta: {x: 692, y: 2139.3}
+  m_AnchoredPosition: {x: -0.000015259, y: -1938.7}
+  m_SizeDelta: {x: 692, y: 2984.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1274827734
 MonoBehaviour:
@@ -1865,14 +1865,14 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Credit\n\n\nGAME PRODUCTION \n\nDIRECTOR \nHuang Qianhui \n\nGAME SYSTEM
-    DEVELOPMENT/UI \nRong Hua \n\nART & MODELING \nFeng Jiawen  \n\nSOUND \nFreesound.org/aigei.com\n\nPROOFREADER
-    \nZhang Jie\n\n\nFILM \n\nDIRECTOR/ CREATOR \nHuang Qianhui \n\nPRODUCER \nLiu
-    Yuran\n \nASSOCIATE SCRIPTWRITER\nChen Yuqiong\n\n\nACTOR  \n\nZhao Dan\nVOICES
-    \nWu Ye\nZhen Junjian \nLi Haiheng \nLiu Xinru \nShi Jiahao \nZhou Ziyou \nWang
-    Mengqi \n\nART DIRECTOR \nFang Ziwen\n\nCINEMATOGRAPHER  \nWu Xuenian\n\nSCRIPT
-    SUPERVISOR \nXu Yuan\n\nSET DESIGNER \nLisha\n\nMAKEUP \nJian Haiwen\n\nEDITOR\nChen
-    Chenyue / Xu Chenhua \n\nSOUND \nWang Xuan \n\n\nSPECIAL THANKS \n\nYIM Chun
-    Pang \nLEUNG Hiu Ming"
+    DEVELOPMENT/UI \nRong Hua \nWang Qiaoyang\n\nART & MODELING \nFeng Jiawen  \n\nSOUND
+    \nFreesound.org/aigei.com\n\nPROOFREADER \nZhang Jie\n\n\nFILM \n\nDIRECTOR/
+    CREATOR \nHuang Qianhui \n\nPRODUCER \nLiu Yuran\n \nASSOCIATE SCRIPTWRITER\nChen
+    Yuqiong\n\n\nACTOR  \nZhao Dan\n\nVOICES \nWu Ye\nZhen Junjian \nLi Haiheng \nLiu
+    Xinru \nShi Jiahao \nZhou Ziyou \nWang Mengqi \n\nART DIRECTOR \nFang Ziwen\n\nCINEMATOGRAPHER 
+    \nWu Xuenian\n\nSCRIPT SUPERVISOR \nXu Yuan\n\nSET DESIGNER \nLisha\n\nMAKEUP
+    \nJian Haiwen\n\nEDITOR\nChen Chenyue / Xu Chenhua \n\nSOUND \nWang Xuan \n\n\nSPECIAL
+    THANKS \n\nYIM Chun Pang \nLEUNG Hiu Ming"
 --- !u!222 &1274827735
 CanvasRenderer:
   m_ObjectHideFlags: 0

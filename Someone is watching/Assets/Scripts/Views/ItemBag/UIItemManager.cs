@@ -32,12 +32,11 @@ public class UIItemManager : View
         GridUI.OnLeftClick += GridUI_OnLeftClick;
     }
 
-    private void Start()
+    private void OnDisable()
     {
-        //foreach (var item in m_GameModel.collectedItems)
-        //{
-        //    StoreItem(item.ID);
-        //}
+        GridUI.OnLeftBeginDrag -= GridUI_OnLeftBeginDrag;
+        GridUI.OnLeftEndDrag -= GridUI_OnLeftEndDrag;
+        GridUI.OnLeftClick -= GridUI_OnLeftClick;
     }
     private void Update()
     {

@@ -45,6 +45,7 @@ public class RecordPlayPanel : MonoBehaviour
         if (m_Rec.ID == 2)
         {
             m_RecordPen.m_UIdesktop.m_GameModel.day3_RedRecord = true;
+            m_RecordPen.SendEvent(Const.E_DayEndCheck, m_RecordPen.m_GameModel.DayEndCheck());
         }
         else if (m_Rec.ID == 4)
         {

@@ -11,7 +11,7 @@ public class GameModel : Model
 
     public bool Calling = false;
 
-    public int Day = 2;
+    public int Day = 1;
     public bool daying = false;
     public bool unlockRecord = false;
     string overallstate = null;
@@ -21,7 +21,7 @@ public class GameModel : Model
         set
         {
             overallstate = value;
-            SendEvent(Const.E_DayEndCheck, DayEndCheck());
+            //SendEvent(Const.E_DayEndCheck, DayEndCheck());
             Debug.Log(overallstate);
         }
     }
@@ -39,20 +39,13 @@ public class GameModel : Model
     public bool day2_Tool = false;
     public bool day2_Piece2 = false;
     public bool day2_SeeNum = false;
-    public bool day2_CG1 = false;
-
-    public bool AllowExitToReal = true;
-    //public bool MonitorRepairing = false;
-    public bool day2_PhoneCall = false;
 
     public bool day2_WaterPungRepair = false;
-
     public bool day2_Camera2Repair = false;
     public bool day2_Camera4Repair = false;
 
     public bool day3_Piece4 = false;
     public bool day3_Piece5 = false;
-
     public bool day3_LoginEmail = false;
     public bool day3_RedRecord = false;
     public bool day3_ReporterWang = false;
@@ -110,7 +103,7 @@ public class GameModel : Model
         switch (Day)
         {
             case 1:
-                if (overallstate == "Day1Period6" && day1_HeardRecord3)
+                if (day1_HeardRecord3)
                 {
                     if (!guide5)
                     {
@@ -132,7 +125,7 @@ public class GameModel : Model
                 }
                 break;
             case 3:
-                if (day3_LoginEmail && day3_ReporterWang && day3_RedRecord)
+                if (day3_ReporterWang && day3_RedRecord)
                 {
                     if (!guide11)
                     {
@@ -148,7 +141,6 @@ public class GameModel : Model
 
     public void Reset()
     {
-        //Day = 1;
         overallstate = null;
         GameOverState = "";
         daying = false;
@@ -156,19 +148,22 @@ public class GameModel : Model
         day1_PenInLadyBag = false;
         day1_MemoryPiece1 = false;
         day1_HeardRecord3 = false;
-        day2_Camera2Repair = false;
-        day2_Camera4Repair = false;
-        day2_CG1 = false;
+
         day2_GetBattery1 = false;
         day2_GetBattery2 = false;
-        day2_PhoneCall = false;
-        day2_Piece2 = false;
         day2_Piece3 = false;
-        day2_SeeNum = false;
         day2_Tool = false;
+        day2_Piece2 = false;
+        day2_SeeNum = false;
         day2_WaterPungRepair = false;
+        day2_Camera2Repair = false;
+        day2_Camera4Repair = false;
+
         day3_Piece4 = false;
         day3_Piece5 = false;
+        day3_LoginEmail = false;
+        day3_RedRecord = false;
+        day3_ReporterWang = false;
 
         guide1 = guide2 = guide3 = guide4 = guide5 = guide6 = guide7 = guide8 = guide9 = guide10 = guide11 = false;
     }
@@ -191,27 +186,34 @@ public class GameModel : Model
                 break;
 
             case 3:
-                //if (overAllState != "Day2Period4")
-                //    handleSuccess = false;
-                //else
-                //{
-                    switch (targetName)
-                    {
-                        case "EnergyRepair1":
-                            day2_Camera2Repair = true;
-                            SendEvent(Const.E_Repair, 1);
-                            handleSuccess = true;
-                            break;
+                switch (targetName)
+                {
+                    case "EnergyRepair1":
+                        if (overAllState != "Day2Period4")
+                        {
+                            SendEvent(Const.E_ShowMessage, "tips20");
+                            return false;
+                        }
+                        day2_Camera2Repair = true;
+                        SendEvent(Const.E_DayEndCheck, DayEndCheck());
+                        SendEvent(Const.E_Repair, 1);
+                        handleSuccess = true;
+                        break;
 
-                        case "EnergyRepair3":
-                            day2_Camera4Repair = true;
-                            handleSuccess = true;
-                            SendEvent(Const.E_Repair, 3);
-                            break;
+                    case "EnergyRepair3":
+                        if (overAllState != "Day2Period4")
+                        {
+                            SendEvent(Const.E_ShowMessage, "tips20");
+                            return false;
+                        }
+                        day2_Camera4Repair = true;
+                        handleSuccess = true;
+                        SendEvent(Const.E_Repair, 3);
+                        SendEvent(Const.E_DayEndCheck, DayEndCheck());
+                        break;
 
 
-                    }
-                //}
+                }
                 break;
 
             case 5:
@@ -222,6 +224,7 @@ public class GameModel : Model
                         handleSuccess = true;
                         day2_WaterPungRepair = true;
                         SendEvent(Const.E_ShowMessage, "tips3");
+                        SendEvent(Const.E_DayEndCheck, DayEndCheck());
                         break;
                 }
                 break;

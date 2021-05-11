@@ -503,7 +503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015259, y: -2087}
+  m_AnchoredPosition: {x: -0.000015259, y: -2484}
   m_SizeDelta: {x: 344.94, y: 129.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205001796
@@ -682,8 +682,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 63.9, y: -180}
-  m_SizeDelta: {x: 1196.2, y: 123.7}
+  m_AnchoredPosition: {x: 63.9, y: -120.92}
+  m_SizeDelta: {x: 1196.2, y: 241.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &282501985
 MonoBehaviour:
@@ -1230,8 +1230,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015259, y: -941.65}
-  m_SizeDelta: {x: 692, y: 2139.3}
+  m_AnchoredPosition: {x: -0.000015259, y: -1135.9}
+  m_SizeDelta: {x: 692, y: 2527.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1540142701
 MonoBehaviour:
@@ -1265,14 +1265,14 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Credit\n\n\nGAME PRODUCTION \n\nDIRECTOR \nHuang Qianhui \n\nGAME SYSTEM
-    DEVELOPMENT/UI \nRong Hua \n\nART & MODELING \nFeng Jiawen  \n\nSOUND \nFreesound.org/aigei.com\n\nPROOFREADER
-    \nZhang Jie\n\n\nFILM \n\nDIRECTOR/ CREATOR \nHuang Qianhui \n\nPRODUCER \nLiu
-    Yuran\n \nASSOCIATE SCRIPTWRITER\nChen Yuqiong\n\n\nACTOR  \n\nZhao Dan\nVOICES
-    \nWu Ye\nZhen Junjian \nLi Haiheng \nLiu Xinru \nShi Jiahao \nZhou Ziyou \nWang
-    Mengqi \n\nART DIRECTOR \nFang Ziwen\n\nCINEMATOGRAPHER  \nWu Xuenian\n\nSCRIPT
-    SUPERVISOR \nXu Yuan\n\nSET DESIGNER \nLisha\n\nMAKEUP \nJian Haiwen\n\nEDITOR\nChen
-    Chenyue / Xu Chenhua \n\nSOUND \nWang Xuan \n\n\nSPECIAL THANKS \n\nYIM Chun
-    Pang \nLEUNG Hiu Ming"
+    DEVELOPMENT/UI \nRong Hua \nWang Qiaoyang\n\nART & MODELING \nFeng Jiawen  \n\nSOUND
+    \nFreesound.org/aigei.com\n\nPROOFREADER \nZhang Jie\n\n\nFILM \n\nDIRECTOR/
+    CREATOR \nHuang Qianhui \n\nPRODUCER \nLiu Yuran\n \nASSOCIATE SCRIPTWRITER\nChen
+    Yuqiong\n\n\nACTOR  \nZhao Dan\n\nVOICES \nWu Ye\nZhen Junjian \nLi Haiheng \nLiu
+    Xinru \nShi Jiahao \nZhou Ziyou \nWang Mengqi \n\nART DIRECTOR \nFang Ziwen\n\nCINEMATOGRAPHER 
+    \nWu Xuenian\n\nSCRIPT SUPERVISOR \nXu Yuan\n\nSET DESIGNER \nLisha\n\nMAKEUP
+    \nJian Haiwen\n\nEDITOR\nChen Chenyue / Xu Chenhua \n\nSOUND \nWang Xuan \n\n\nSPECIAL
+    THANKS \n\nYIM Chun Pang \nLEUNG Hiu Ming"
 --- !u!222 &1540142702
 CanvasRenderer:
   m_ObjectHideFlags: 0

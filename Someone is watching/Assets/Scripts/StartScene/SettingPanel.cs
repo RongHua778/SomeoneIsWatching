@@ -24,6 +24,7 @@ public class SettingPanel : MonoBehaviour
     public void SaveAndQuit()
     {
         PlayerPrefs.SetInt("SaveDay", _uifunctionManager.m_GameModel.Day);
+        _uifunctionManager.m_GameModel.Reset();
         Game.Instance.LoadScene(1);
     }
 }

@@ -8,7 +8,7 @@ public class CreditPanel : MonoBehaviour
     RectTransform creditContent = default;
     bool rolling = true;
     Vector3 initPos;
-    float rollingSpeed = 15f;
+    float rollingSpeed = 45f;
     // Start is called before the first frame update
     void Awake()
     {

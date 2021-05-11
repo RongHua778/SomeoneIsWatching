@@ -81,6 +81,8 @@ public class UIDialogManager : View
     {
         if (detail.needSelection)
             Contiune.gameObject.SetActive(false);
+        else
+            Contiune.gameObject.SetActive(true);
         DialogueText.text = "";
         string sentence = LanguageControl.GetValue(detail.key);
 
@@ -113,7 +115,6 @@ public class UIDialogManager : View
         int id = int.Parse(text.name);
         DialogueTrigger trigger = TriggerDIC[id];
         trigger.TriggerDialogue();
-        Contiune.gameObject.SetActive(true);
 
         animator.SetBool("ShowChoice", false);
     }
@@ -138,8 +139,10 @@ public class UIDialogManager : View
                 m_GameModel.GameOverState = "DeadManNoSay";
                 Game.Instance.LoadScene(3);
                 break;
-            case 23:
+            case 23://报社记者对话正常结束
                 SendEvent(Const.E_DialogEnd);
+                m_GameModel.day3_ReporterWang = true;
+                SendEvent(Const.E_DayEndCheck, m_GameModel.DayEndCheck());
                 break;
         }
         dialogSystem.SetActive(false);
@@ -147,14 +150,14 @@ public class UIDialogManager : View
 
     private void Day1AnimationEnd()
     {
-        VideoManager.Instance.ShowImage(10, "Day1_Desk", "Image/CG/Scene_Computer", false);
+        VideoManager.Instance.ShowImage(10, "Day1_Desk", "Image/CG/Day1_Desk", false);
 
     }
 
     public void Skip()
     {
         VideoManager.Instance.StopAll();
-        VideoManager.Instance.ShowImage(10, "Day1_Desk", "Image/CG/Scene_Computer", false);
+        VideoManager.Instance.ShowImage(10, "Day1_Desk", "Image/CG/Day1_Desk", false);
         dialogSystem.SetActive(false);
         SkipBtn.gameObject.SetActive(false);
 

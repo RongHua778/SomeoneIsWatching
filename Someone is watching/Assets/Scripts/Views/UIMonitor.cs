@@ -78,7 +78,6 @@ public class UIMonitor : View
                 {
                     m_UIInteractive.HideSubtitle();
                     VideoManager.Instance.CloseAll();
-                    m_UIInteractive.CheckAll();
                 }
                 else
                 {
@@ -266,19 +265,16 @@ public class UIMonitor : View
         this.gameObject.SetActive(true);
         m_GameModel.overAllState = "Day1Period5";
         Segment seg0 = new Segment(0, "Video/Camera1/D1.1g（空镜）", "D1-1g", false, false);
-        //PlayClip(seg0);
         Segment seg1 = new Segment(4, "Video/Camera5/D1.5f", "D1-5f", true, false,null,Day1Period5_2);
         Segment seg2 = new Segment(0, "Video/Camera1/D1.1g", "D1-1g", true, false,null,Day1Period6);
-        //PlayClip(new List<Segment> { seg1, seg2 });
         Segment seg3 = new Segment(5, "Video/Camera6/D1.6c", "D1-6c", false, false);
         Segment seg4 = new Segment(7, "Video/Camera8/D1.8c", "D1-8c", false, false);
+        VideoManager.Instance.ShowImage(6, "D1_7i", "Image/Camera7/D1.7i", false);
         VideoManager.Instance.PlayVideoClip(seg0);
         VideoManager.Instance.PlaySeq(new List<Segment> { seg1,seg2});
         VideoManager.Instance.PlayVideoClip(seg3);
         VideoManager.Instance.PlayVideoClip(seg4);
-
-        //PlayClip(seg3);
-        //PlayClip(seg4);
+        
     }
 
     void Day1Period5_2()
@@ -328,17 +324,11 @@ public class UIMonitor : View
         VideoManager.Instance.StopAll();
         m_GameModel.overAllState = "Day2Period4";
         Segment seg0 = new Segment(0, "Video/Camera1/D2.1i", "D2-1i", true, false);
-        //PlayClip(seg0);
         Segment seg1 = new Segment(2, "Video/Camera3/D2.3i", "D2-3i", false, false);
-        //PlayClip(seg1);
         Segment seg2 = new Segment(4, "Video/Camera5/D2.5i", "D2-5i", false, false);
-        //PlayClip(seg2);
         Segment seg3 = new Segment(5, "Video/Camera6/D2.6i", "D2-6i", false, false);
-       // PlayClip(seg3);
         Segment seg4 = new Segment(6, "Video/Camera7/D2.7i", "D2-7i", false, false);
-        //PlayClip(seg4);
         Segment seg5 = new Segment(7, "Video/Camera8/D2.8i", "D2-8i", false, false);
-       // PlayClip(seg5);
         VideoManager.Instance.PlayVideoClip(seg0);
         VideoManager.Instance.PlayVideoClip(seg1);
         VideoManager.Instance.PlayVideoClip(seg2);

@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.PostProcessing;
+
 
 public class UIFunctionManager : View
 {
@@ -8,7 +11,7 @@ public class UIFunctionManager : View
     {
         get { return Const.V_Function; }
     }
-
+    public PostProcessVolume Volume;
     public GameModel m_GameModel;
 
     public UIRealworld m_RealWorld;
@@ -30,6 +33,9 @@ public class UIFunctionManager : View
         {
             case 1:
                 ShowPanel(1);
+                SendEvent(Const.E_AddRecord, 1);
+                SendEvent(Const.E_AddRecord, 2);
+                SendEvent(Const.E_AddRecord, 3);
                 Segment seg1 = new Segment(10, "Video/Animation/Opening_1", "Opening", false, false, null, Day1Openning);
                 Segment seg2 = new Segment(10, "Video/Animation/Opening_2", "Opening", false, true);
 
@@ -39,10 +45,14 @@ public class UIFunctionManager : View
 
             case 2:
                 ShowPanel(1);
+                Sound.Instance.PlayEffect("SoundEffect/Sound_Knock");
                 SendEvent(Const.E_UnlockRecord, true);
                 SendEvent(Const.E_GetItem, 1);//获得时钟
                 SendEvent(Const.E_AddPiece, 2);//获得记忆碎片1
-                VideoManager.Instance.ShowImage(10, "Day2_Desk", "Image/CG/Scene_Computer", false);
+                SendEvent(Const.E_AddRecord, 1);
+                SendEvent(Const.E_AddRecord, 2);
+                SendEvent(Const.E_AddRecord, 3);
+                VideoManager.Instance.ShowImage(10, "Day2_Desk", "Image/CG/Day2_Desk", false);
                 if (!m_GameModel.guide8)
                 {
                     SendEvent(Const.E_AddChat, "guide08");
@@ -53,9 +63,12 @@ public class UIFunctionManager : View
 
             case 3:
                 ShowPanel(1);
-                VideoManager.Instance.ShowImage(10, "Day2_Desk", "Image/CG/Scene_Computer", false);
+                VideoManager.Instance.ShowImage(10, "Day2_Desk", "Image/CG/Day2_Desk", false);
                 SendEvent(Const.E_UnlockRecord, true);
-                SendEvent(Const.E_AddRecord, 1);
+                SendEvent(Const.E_AddRecord, 1); 
+                SendEvent(Const.E_AddRecord, 2); 
+                SendEvent(Const.E_AddRecord, 3);
+                SendEvent(Const.E_AddRecord, 4);
                 SendEvent(Const.E_AddPiece, 2);
                 SendEvent(Const.E_AddPiece, 6);
                 SendEvent(Const.E_AddPiece, 4);
@@ -64,7 +77,7 @@ public class UIFunctionManager : View
 
             case 4:
                 ShowPanel(1);
-                VideoManager.Instance.ShowImage(10, "Day1_Desk", "Image/CG/Scene_Computer", false);
+                VideoManager.Instance.ShowImage(10, "Day2_Desk", "Image/CG/Day2_Desk", false);
                 //SendEvent(Const.E_AddRecord, 0);
                 //SendEvent(Const.E_AddRecord, 4);//新增录音片段
                 SendEvent(Const.E_AddPiece, 2);
@@ -89,10 +102,12 @@ public class UIFunctionManager : View
         switch (id)
         {
             case 0:
+                Volume.weight = 1;
                 m_RealWorld.transform.SetAsFirstSibling();
                 Sound.Instance.PlayEffect("SoundEffect/Sound_ComputerOpen");
                 break;
             case 1:
+                Volume.weight = 0.3f;
                 m_Desktop.transform.SetAsFirstSibling();
                 m_Desktop.Show();
                 SendEvent(Const.E_DayEndCheck,m_GameModel.DayEndCheck());
@@ -146,6 +161,7 @@ public class UIFunctionManager : View
         if (check)
         {
             NextDayBtnObj.SetActive(true);
+            NextDayBtnObj.GetComponentInChildren<TextHandler>().SetText("nextday");
         }
         else
         {

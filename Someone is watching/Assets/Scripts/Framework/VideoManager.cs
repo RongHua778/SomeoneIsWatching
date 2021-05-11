@@ -106,6 +106,7 @@ public class VideoManager : Singleton<VideoManager>
     {
         
         Displayer displayer = m_Displayers[seg.ID];
+        //displayer.video.waitForFirstFrame = true;
         //RenderTexture.active = displayer.video.targetTexture;
         //GL.Clear(true, true, Color.black);
         //RenderTexture.active = null;
@@ -131,6 +132,7 @@ public class VideoManager : Singleton<VideoManager>
         displayer.videoBG.gameObject.SetActive(true);
         displayer.image.gameObject.SetActive(false);
         displayer.video.clip = Resources.Load<VideoClip>(seg.VideoClipPath);
+        
         displayer.video.Play();
         displayer.video.isLooping = seg.Loop;
         //FindAndSet(seg.ID,seg.State);
@@ -189,6 +191,11 @@ public class VideoManager : Singleton<VideoManager>
         {
             FindAndSet(id, state);
         }
+        RenderTexture.active = displayer.video.targetTexture;
+        GL.Clear(true, true, Color.black);
+        RenderTexture.active = null;
+        //displayer.video.targetTexture.DiscardContents();
+        //Graphics.Blit(firstFrameTexture, displayer.video.targetTexture);
         displayer.videoBG.gameObject.SetActive(false);
         displayer.image.gameObject.SetActive(true);
         displayer.image.sprite = Resources.Load<Sprite>(path);
